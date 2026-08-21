@@ -422,7 +422,7 @@
     }
     .modal.open { display: block; }
     .modal-card {
-      max-width: 900px; margin: auto; background: var(--surface);
+      max-width: 960px; margin: auto; background: var(--surface);
       border: 1px solid var(--line-light); border-radius: 8px; overflow: hidden;
     }
     .modal-header {
@@ -435,9 +435,9 @@
     .modal-content { padding: 36px; }
     .modal-media {
       aspect-ratio: 16/9; background: #000; border-radius: 4px; margin-bottom: 30px;
-      overflow: hidden; border: 1px solid var(--line-light);
+      overflow: hidden; border: 1px solid var(--line-light); position: relative;
     }
-    .modal-media img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-media img, .modal-media iframe { width: 100%; height: 100%; border: 0; object-fit: cover; }
     .modal-body-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
     .modal-heading { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
     .modal-desc { color: var(--concrete); font-size: 14px; line-height: 1.8; font-weight: 300; }
@@ -445,6 +445,24 @@
     .sidebar-block { margin-bottom: 24px; }
     .sidebar-lbl { font-family: var(--font-mono); font-size: 11px; color: #777; margin-bottom: 6px; display: block; }
     .sidebar-val { font-size: 13px; color: var(--paper-white); font-weight: 400; line-height: 1.5; }
+
+    .live-link-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--electric-blue);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    .live-link-btn:hover {
+      box-shadow: 0 4px 15px rgba(49, 87, 255, 0.4);
+      transform: translateY(-1px);
+    }
 
     /* Responsive */
     @media (max-width: 960px) {
@@ -527,7 +545,6 @@
 
     <div class="hero-visual">
       <div class="visual-frame">
-        <!-- Hero Visual Image: Cinematic Mood Profile -->
         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80" alt="Arvio Andriano Visual Direction">
         <div class="visual-badge">
           <div>
@@ -644,6 +661,12 @@
             <span class="sidebar-lbl">TOOLS / SOFTWARE</span>
             <div class="sidebar-val" id="modalTools">—</div>
           </div>
+          <div class="sidebar-block" id="modalLinkContainer" style="display:none;">
+            <span class="sidebar-lbl">LIVE INTERACTIVE</span>
+            <a href="#" target="_blank" rel="noreferrer" class="live-link-btn" id="modalLiveBtn">
+              OPEN EXPERIENCE ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -651,7 +674,7 @@
 </div>
 
 <script>
-// Project Data with Aesthetic Placeholder Images
+// Project Data
 const projects = [
   {
     title: "MELANGKAH — Short Drama Film",
@@ -669,7 +692,7 @@ const projects = [
     featured: false,
     image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80",
     desc: "Eksplorasi sistem identitas visual adaptif yang mengombinasikan struktur grid geometris dengan palet monokromatik dan aksen kontras tinggi.",
-    tools: "Brand Designer · Illustrator · InDesign"
+    tools: "Brand Identity · Illustrator · InDesign"
   },
   {
     title: "Kinetic Typography & Motion Beats",
@@ -690,13 +713,14 @@ const projects = [
     tools: "Art Direction · Copywriting · Adobe InDesign"
   },
   {
-    title: "3D Spatial Environment & WebGL",
+    title: "AR-BETA V01 — Interactive 3D / WebGL",
     cat: "3D",
-    year: "2025",
+    year: "2026",
     featured: false,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    desc: "Pemodelan ruang pameran interaktif 3D real-time dengan integrasi pergerakan sudut pandang kamera bebas pada peramban web.",
-    tools: "3D Modeler · SketchUp · Unity WebGL"
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    liveUrl: "https://feby-akliji23.github.io/AR-BETA_V01/",
+    desc: "Eksplorasi interaktif 3D dan WebGL real-time. Proyek ini menggabungkan pemodelan spasial 3D dengan rendering interaktif langsung di peramban web browser.",
+    tools: "Interactive 3D · WebGL · Augmented Reality"
   }
 ];
 
@@ -751,6 +775,8 @@ renderProjects();
 // Modal Handlers
 const modal = document.getElementById("projectModal");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
+const modalLinkContainer = document.getElementById("modalLinkContainer");
+const modalLiveBtn = document.getElementById("modalLiveBtn");
 
 function openModal(data) {
   document.getElementById("modalCategoryTag").textContent = `${data.cat.toUpperCase()} // ${data.year}`;
@@ -760,7 +786,16 @@ function openModal(data) {
   document.getElementById("modalTools").textContent = data.tools;
 
   const mediaEl = document.getElementById("modalMedia");
-  mediaEl.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
+  
+  // Jika proyek memiliki link interaktif (seperti 3D WebGL / AR)
+  if (data.liveUrl) {
+    mediaEl.innerHTML = `<iframe src="${data.liveUrl}" allow="camera; gyroscope; accelerometer" allowfullscreen></iframe>`;
+    modalLinkContainer.style.display = "block";
+    modalLiveBtn.href = data.liveUrl;
+  } else {
+    mediaEl.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
+    modalLinkContainer.style.display = "none";
+  }
 
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
@@ -769,6 +804,8 @@ function openModal(data) {
 function closeModal() {
   modal.classList.remove("open");
   document.body.style.overflow = "";
+  // Reset media saat modal ditutup untuk menghentikan resource iframe
+  document.getElementById("modalMedia").innerHTML = "";
 }
 
 modalCloseBtn.onclick = closeModal;
