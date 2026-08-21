@@ -298,7 +298,6 @@
     .project-card {
       grid-column: span 6;
       cursor: pointer;
-      group: relative;
     }
     .project-card.featured { grid-column: span 12; }
     
@@ -318,14 +317,6 @@
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
     }
     .project-card:hover .card-media img { transform: scale(1.03); filter: brightness(1.05); }
-
-    .card-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #131317, #1b1b22);
-      color: #666; font-family: var(--font-mono); font-size: 12px; gap: 8px;
-    }
-    .card-placeholder .mono-tag { color: var(--electric-blue); font-size: 10px; }
 
     .card-info { display: flex; justify-content: space-between; align-items: flex-start; }
     .card-title {
@@ -536,11 +527,8 @@
 
     <div class="hero-visual">
       <div class="visual-frame">
-        <!-- Ganti src dengan foto profil/hero work jika sudah ada -->
-        <div class="card-placeholder" style="height: 100%;">
-          <div style="font-size: 32px; color: var(--electric-blue); font-family: var(--font-display); font-weight: 700;">AA//</div>
-          <span class="mono-tag">VISUAL SHOWCASE 2026</span>
-        </div>
+        <!-- Hero Visual Image: Cinematic Mood Profile -->
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80" alt="Arvio Andriano Visual Direction">
         <div class="visual-badge">
           <div>
             <div class="title">Featured Project</div>
@@ -663,14 +651,14 @@
 </div>
 
 <script>
-// Project Data
+// Project Data with Aesthetic Placeholder Images
 const projects = [
   {
     title: "MELANGKAH — Short Drama Film",
     cat: "Video",
     year: "2026",
     featured: true,
-    image: "", // Masukkan link gambar karya bila ada
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1600&q=80",
     desc: "Perancangan film pendek drama inspiratif sebagai karya tugas akhir terintegrasi, mencakup penyutradaraan, penulisan naskah, tata visual sinematik, serta identitas promosi dan ekosistem merchandise.",
     tools: "Director / Editor · Premiere Pro · After Effects"
   },
@@ -679,7 +667,7 @@ const projects = [
     cat: "Design",
     year: "2026",
     featured: false,
-    image: "",
+    image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80",
     desc: "Eksplorasi sistem identitas visual adaptif yang mengombinasikan struktur grid geometris dengan palet monokromatik dan aksen kontras tinggi.",
     tools: "Brand Designer · Illustrator · InDesign"
   },
@@ -688,7 +676,7 @@ const projects = [
     cat: "Motion",
     year: "2026",
     featured: false,
-    image: "",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
     desc: "Seri eksperimen tipografi kinetik berbasis ritme audio, berfokus pada transisi dinamis dan tekstur grafis digital kontemporer.",
     tools: "Motion Designer · After Effects"
   },
@@ -697,7 +685,7 @@ const projects = [
     cat: "Design",
     year: "2025",
     featured: false,
-    image: "",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80",
     desc: "Penyusunan company profile korporat, naskah narasi profesional, serta standarisasi tata letak editorial untuk klien eksternal.",
     tools: "Art Direction · Copywriting · Adobe InDesign"
   },
@@ -706,7 +694,7 @@ const projects = [
     cat: "3D",
     year: "2025",
     featured: false,
-    image: "",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     desc: "Pemodelan ruang pameran interaktif 3D real-time dengan integrasi pergerakan sudut pandang kamera bebas pada peramban web.",
     tools: "3D Modeler · SketchUp · Unity WebGL"
   }
@@ -734,12 +722,7 @@ function createProjectCard(item) {
   const card = document.createElement("article");
   card.className = `project-card ${item.featured ? "featured" : ""}`;
   
-  const mediaHtml = item.image 
-    ? `<img src="${item.image}" alt="${item.title}" loading="lazy">` 
-    : `<div class="card-placeholder">
-        <span style="font-family: var(--font-display); font-size: 16px; font-weight:600; color:#fff;">${item.title}</span>
-        <span class="mono-tag">${item.cat.toUpperCase()} · ${item.year}</span>
-       </div>`;
+  const mediaHtml = `<img src="${item.image}" alt="${item.title}" loading="lazy">`;
 
   card.innerHTML = `
     <div class="card-media">${mediaHtml}</div>
@@ -777,15 +760,7 @@ function openModal(data) {
   document.getElementById("modalTools").textContent = data.tools;
 
   const mediaEl = document.getElementById("modalMedia");
-  if (data.image) {
-    mediaEl.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
-  } else {
-    mediaEl.innerHTML = `
-      <div class="card-placeholder" style="height:100%;">
-        <span style="color:var(--electric-blue); font-size:18px; font-family:var(--font-display); font-weight:700;">${data.title}</span>
-        <span class="mono-tag">PROJECT PREVIEW ASSET</span>
-      </div>`;
-  }
+  mediaEl.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
 
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
