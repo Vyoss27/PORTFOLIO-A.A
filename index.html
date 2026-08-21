@@ -662,9 +662,9 @@
             <div class="sidebar-val" id="modalTools">—</div>
           </div>
           <div class="sidebar-block" id="modalLinkContainer" style="display:none;">
-            <span class="sidebar-lbl">LIVE INTERACTIVE</span>
+            <span class="sidebar-lbl" id="modalLinkTitle">ACTION</span>
             <a href="#" target="_blank" rel="noreferrer" class="live-link-btn" id="modalLiveBtn">
-              OPEN EXPERIENCE ↗
+              OPEN LINK ↗
             </a>
           </div>
         </div>
@@ -681,7 +681,9 @@ const projects = [
     cat: "Video",
     year: "2026",
     featured: true,
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1600&q=80",
+    image: "https://lh3.googleusercontent.com/d/1E0T5192dwO54OSb_E2-_GHlPdUBgw-Jv",
+    videoUrl: "https://drive.google.com/file/d/1E0T5192dwO54OSb_E2-_GHlPdUBgw-Jv/preview",
+    liveUrl: "https://drive.google.com/file/d/1E0T5192dwO54OSb_E2-_GHlPdUBgw-Jv/view?usp=sharing",
     desc: "Perancangan film pendek drama inspiratif sebagai karya tugas akhir terintegrasi, mencakup penyutradaraan, penulisan naskah, tata visual sinematik, serta identitas promosi dan ekosistem merchandise.",
     tools: "Director / Editor · Premiere Pro · After Effects"
   },
@@ -776,6 +778,7 @@ renderProjects();
 const modal = document.getElementById("projectModal");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
 const modalLinkContainer = document.getElementById("modalLinkContainer");
+const modalLinkTitle = document.getElementById("modalLinkTitle");
 const modalLiveBtn = document.getElementById("modalLiveBtn");
 
 function openModal(data) {
@@ -787,12 +790,24 @@ function openModal(data) {
 
   const mediaEl = document.getElementById("modalMedia");
   
-  // Jika proyek memiliki link interaktif (seperti 3D WebGL / AR)
-  if (data.liveUrl) {
+  // 1. Jika proyek memiliki video (Google Drive Video Player)
+  if (data.videoUrl) {
+    mediaEl.innerHTML = `<iframe src="${data.videoUrl}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    modalLinkContainer.style.display = "block";
+    modalLinkTitle.textContent = "WATCH FULL VIDEO";
+    modalLiveBtn.textContent = "OPEN IN DRIVE ↗";
+    modalLiveBtn.href = data.liveUrl || data.videoUrl;
+  }
+  // 2. Jika proyek memiliki live link (3D WebGL / AR)
+  else if (data.liveUrl) {
     mediaEl.innerHTML = `<iframe src="${data.liveUrl}" allow="camera; gyroscope; accelerometer" allowfullscreen></iframe>`;
     modalLinkContainer.style.display = "block";
+    modalLinkTitle.textContent = "LIVE INTERACTIVE";
+    modalLiveBtn.textContent = "OPEN EXPERIENCE ↗";
     modalLiveBtn.href = data.liveUrl;
-  } else {
+  } 
+  // 3. Gambar Standar
+  else {
     mediaEl.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
     modalLinkContainer.style.display = "none";
   }
@@ -804,7 +819,7 @@ function openModal(data) {
 function closeModal() {
   modal.classList.remove("open");
   document.body.style.overflow = "";
-  // Reset media saat modal ditutup untuk menghentikan resource iframe
+  // Reset media saat modal ditutup agar audio/video tidak terus berjalan
   document.getElementById("modalMedia").innerHTML = "";
 }
 
