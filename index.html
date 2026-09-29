@@ -54,25 +54,21 @@
       will-change: transform;
     }
 
-    /* Tipografi Outline Hero Section */
+    /* Tipografi Outline Hero Section yang Lebih Tebal & Terbaca */
     .hero-outline-text {
-      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
-      color: transparent;
+      -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.48);
+      color: rgba(255, 255, 255, 0.04);
       user-select: none;
+      letter-spacing: -0.03em;
     }
     html:not(.dark) .hero-outline-text {
-      -webkit-text-stroke: 1.5px rgba(15, 23, 42, 0.25);
-      color: transparent;
+      -webkit-text-stroke: 2.5px rgba(15, 23, 42, 0.55);
+      color: rgba(15, 23, 42, 0.04);
     }
 
     /* Teks Vertikal Scroll Down */
     .vertical-lr {
       writing-mode: vertical-lr;
-    }
-
-    /* Animasi Tumpukan Kartu Trait */
-    .trait-card {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Carousel 3D Perspective */
@@ -130,44 +126,44 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION (RUNNING TEXT + FOTO GOOGLE DRIVE) ================= -->
+  <!-- ================= HERO SECTION (FOTO LEBIH BESAR & NAMA LEBIH TEBAL) ================= -->
   <section class="relative min-h-screen flex items-end justify-center overflow-hidden pt-20">
     
-    <!-- Lapisan Belakang (z-0): Teks Marquee Berjalan Tanpa Putus -->
+    <!-- Lapisan Belakang (z-0): Running Text Marquee Tebal -->
     <div class="absolute inset-0 flex items-center overflow-hidden pointer-events-none select-none z-0">
       <div class="animate-marquee flex items-center whitespace-nowrap">
         
         <!-- Track 1 -->
         <div class="flex items-center shrink-0">
-          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
-          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+          <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
+          <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
         </div>
 
-        <!-- Track 2 (Duplikasi agar putaran seamless) -->
+        <!-- Track 2 (Duplikasi mulus) -->
         <div class="flex items-center shrink-0">
-          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
-          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+          <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
+          <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
         </div>
 
       </div>
     </div>
 
-    <!-- Lapisan Depan (z-10): Foto Potret Anda dari Google Drive -->
-    <div class="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex justify-center translate-y-2 pointer-events-none">
+    <!-- Lapisan Depan (z-10): Foto Potret Anda (Diperbesar) -->
+    <div class="relative z-10 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl flex justify-center translate-y-3 pointer-events-none">
       <img 
         id="heroPortrait"
         src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" 
         alt="Arvio Andriano" 
-        class="w-full max-h-[82vh] object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.65)]"
+        class="w-auto h-[82vh] md:h-[88vh] max-h-[92vh] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.75)]"
         onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3';"
       />
     </div>
 
-    <!-- Gradasi Halus di Bagian Dasar agar Menyatu Alami -->
+    <!-- Gradasi Halus di Bagian Dasar -->
     <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-lightBg dark:from-darkBg to-transparent z-[15] pointer-events-none"></div>
 
     <!-- Indikator SCROLL DOWN (Kanan Bawah) -->
@@ -366,7 +362,7 @@
     <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-8 mb-6 shadow-sm">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-6 pb-6 border-b border-lightBorder dark:border-darkBorder">
         
-        <!-- Avatar Foto Arvio (Google Drive) -->
+        <!-- Avatar Foto Arvio -->
         <div class="w-16 h-16 rounded-full overflow-hidden border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-darkBg shrink-0">
           <img 
             src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" 
