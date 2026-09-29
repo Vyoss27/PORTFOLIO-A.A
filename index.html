@@ -130,7 +130,7 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION (RUNNING TEXT MARQUEE) ================= -->
+  <!-- ================= HERO SECTION (RUNNING TEXT + FOTO GOOGLE DRIVE) ================= -->
   <section class="relative min-h-screen flex items-end justify-center overflow-hidden pt-20">
     
     <!-- Lapisan Belakang (z-0): Teks Marquee Berjalan Tanpa Putus -->
@@ -145,7 +145,7 @@
           <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
         </div>
 
-        <!-- Track 2 (Duplikasi agar transisi perputaran seamless) -->
+        <!-- Track 2 (Duplikasi agar putaran seamless) -->
         <div class="flex items-center shrink-0">
           <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
           <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
@@ -156,20 +156,21 @@
       </div>
     </div>
 
-    <!-- Lapisan Depan (z-10): Foto Potret Subjek (PNG Transparan) -->
-    <div class="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg flex justify-center translate-y-3 pointer-events-none">
+    <!-- Lapisan Depan (z-10): Foto Potret Anda dari Google Drive -->
+    <div class="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex justify-center translate-y-2 pointer-events-none">
       <img 
         id="heroPortrait"
-        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
+        src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" 
         alt="Arvio Andriano" 
-        class="w-full object-cover grayscale contrast-110 drop-shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
+        class="w-full max-h-[82vh] object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.65)]"
+        onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3';"
       />
     </div>
 
-    <!-- Gradasi Halus di Bagian Bawah Section -->
+    <!-- Gradasi Halus di Bagian Dasar agar Menyatu Alami -->
     <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-lightBg dark:from-darkBg to-transparent z-[15] pointer-events-none"></div>
 
-    <!-- Indikator Vertikal SCROLL DOWN di Sisi Kanan -->
+    <!-- Indikator SCROLL DOWN (Kanan Bawah) -->
     <div class="absolute right-6 bottom-10 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
       <span class="vertical-lr text-[10px] font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
         SCROLL DOWN
@@ -203,7 +204,7 @@
       </div>
 
       <!-- Tombol Arsip Proyek -->
-      <button onclick="openArchiveModal('all')" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard hover:border-neutral-500 transition">
+      <button onclick="openArchiveModal()" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard hover:border-neutral-500 transition">
         <span>View More Projects</span>
         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
       </button>
@@ -364,11 +365,17 @@
     <!-- Bento Top Card: Bio Ringkas & Metrik -->
     <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-8 mb-6 shadow-sm">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-6 pb-6 border-b border-lightBorder dark:border-darkBorder">
-        <img 
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" 
-          alt="Avatar" 
-          class="w-16 h-16 rounded-full object-cover grayscale contrast-125 border border-neutral-300 dark:border-neutral-700"
-        />
+        
+        <!-- Avatar Foto Arvio (Google Drive) -->
+        <div class="w-16 h-16 rounded-full overflow-hidden border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-darkBg shrink-0">
+          <img 
+            src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" 
+            alt="Arvio Andriano" 
+            class="w-full h-full object-cover"
+            onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3';"
+          />
+        </div>
+
         <div class="flex-1">
           <h3 class="text-xl font-bold text-neutral-900 dark:text-white uppercase tracking-tight">
             ARVIO ANDRIANO
