@@ -37,6 +37,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    /* Animasi Running Text Marquee Halus Tanpa Jeda */
+    @keyframes marqueeLoop {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marqueeLoop 24s linear infinite;
+      will-change: transform;
+    }
+
     /* Tipografi Outline Hero Section */
     .hero-outline-text {
       -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
@@ -113,25 +130,44 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
+  <!-- ================= HERO SECTION (RUNNING TEXT MARQUEE) ================= -->
   <section class="relative min-h-screen flex items-end justify-center overflow-hidden pt-20">
     
-    <!-- Tipografi Hollow Raksasa di Belakang -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-      <div class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none whitespace-nowrap uppercase">
-        ARVIO ANDRIANO
+    <!-- Lapisan Belakang (z-0): Teks Marquee Berjalan Tanpa Putus -->
+    <div class="absolute inset-0 flex items-center overflow-hidden pointer-events-none select-none z-0">
+      <div class="animate-marquee flex items-center whitespace-nowrap">
+        
+        <!-- Track 1 -->
+        <div class="flex items-center shrink-0">
+          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+        </div>
+
+        <!-- Track 2 (Duplikasi agar transisi perputaran seamless) -->
+        <div class="flex items-center shrink-0">
+          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+          <span class="hero-outline-text text-[15vw] md:text-[13vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
+          <span class="hero-outline-text text-[8vw] font-black tracking-tighter leading-none uppercase px-4 opacity-40">&bull;</span>
+        </div>
+
       </div>
     </div>
 
-    <!-- Foto Potret Subjek (PNG Transparan di Tengah) -->
-    <div class="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg flex justify-center translate-y-3">
+    <!-- Lapisan Depan (z-10): Foto Potret Subjek (PNG Transparan) -->
+    <div class="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg flex justify-center translate-y-3 pointer-events-none">
       <img 
         id="heroPortrait"
         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
         alt="Arvio Andriano" 
-        class="w-full object-cover grayscale contrast-110 drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+        class="w-full object-cover grayscale contrast-110 drop-shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
       />
     </div>
+
+    <!-- Gradasi Halus di Bagian Bawah Section -->
+    <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-lightBg dark:from-darkBg to-transparent z-[15] pointer-events-none"></div>
 
     <!-- Indikator Vertikal SCROLL DOWN di Sisi Kanan -->
     <div class="absolute right-6 bottom-10 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
@@ -409,7 +445,7 @@
         </div>
       </div>
 
-      <!-- Interactive Trait Deck (Kartu yang Dapat Diklik & Berganti Seperti di Video) -->
+      <!-- Interactive Trait Deck -->
       <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 relative flex flex-col justify-between overflow-hidden cursor-pointer select-none group" onclick="cycleTraitCard()">
         <div class="flex items-center justify-between z-10">
           <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Trait</span>
@@ -432,7 +468,7 @@
           <span class="group-hover:translate-x-1 transition">&rarr;</span>
         </div>
 
-        <!-- Efek Kartu Bertumpuk di Latar Belakang -->
+        <!-- Efek Kartu Bertumpuk -->
         <div class="absolute -right-2 -bottom-2 w-20 h-20 rounded-2xl bg-neutral-200/50 dark:bg-darkBg/50 -rotate-12 pointer-events-none"></div>
       </div>
 
@@ -643,7 +679,7 @@
           <span class="text-xs font-mono text-neutral-400">03 &nearr;</span>
         </a>
 
-        <!-- Tombol Send Me a Message (Membuka Popup Modal Seperti di Video) -->
+        <!-- Tombol Send Me a Message -->
         <div class="pt-3">
           <button onclick="toggleContactModal(true)" class="w-full py-4 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 text-xs font-bold uppercase tracking-wider transition duration-300 shadow-sm flex items-center justify-center gap-2">
             <span>SEND ME A MESSAGE</span>
@@ -689,7 +725,7 @@
     </div>
   </div>
 
-  <!-- ================= POPUP MODAL: ARCHIVE (TECHNICAL & DIGITAL) ================= -->
+  <!-- ================= POPUP MODAL: ARCHIVE ================= -->
   <div id="archiveModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
     <div class="relative w-full max-w-3xl max-h-[85vh] rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-7 shadow-2xl flex flex-col overflow-hidden">
       
@@ -704,7 +740,7 @@
         </button>
       </div>
 
-      <!-- Tab Switcher (Technical vs Digital) Seperti di Video -->
+      <!-- Tab Switcher -->
       <div class="flex items-center gap-3 mt-4 border-b border-lightBorder dark:border-darkBorder pb-3">
         <button id="tabBtnTechnical" onclick="switchArchiveTab('technical')" class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-md bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 transition">
           Design & Production
@@ -716,7 +752,7 @@
 
       <!-- Konten Daftar Arsip -->
       <div id="archiveListContainer" class="flex-1 overflow-y-auto mt-4 pr-2 space-y-4">
-        <!-- Akan diisi secara dinamis oleh JavaScript -->
+        <!-- Diisi dinamis via JavaScript -->
       </div>
     </div>
   </div>
@@ -771,19 +807,16 @@
 
       cards.forEach((card, index) => {
         if (index === currentSlide) {
-          // Kartu Tengah (Aktif)
           card.style.transform = 'translateX(0) scale(1) translateZ(0)';
           card.style.zIndex = '30';
           card.style.opacity = '1';
           card.style.filter = 'none';
         } else if (index < currentSlide || (currentSlide === 0 && index === 2)) {
-          // Kartu Kiri
           card.style.transform = 'translateX(-35%) scale(0.85) rotateY(15deg) translateZ(-50px)';
           card.style.zIndex = '10';
           card.style.opacity = '0.5';
           card.style.filter = 'blur(1px)';
         } else {
-          // Kartu Kanan
           card.style.transform = 'translateX(35%) scale(0.85) rotateY(-15deg) translateZ(-50px)';
           card.style.zIndex = '10';
           card.style.opacity = '0.5';
@@ -791,11 +824,9 @@
         }
       });
 
-      // Update Teks
       titleElem.textContent = carouselData[currentSlide].title;
       descElem.textContent = carouselData[currentSlide].desc;
 
-      // Update Dots
       dots.forEach((dot, idx) => {
         if (idx === currentSlide) {
           dot.className = "c-dot w-6 h-2 rounded-full bg-neutral-900 dark:bg-white transition-all";
@@ -809,10 +840,9 @@
       currentSlide = idx;
       updateCarousel();
     }
-    // Inisialisasi awal carousel
     updateCarousel();
 
-    /* 3. Logika Kartu Trait Interaktif yang Berganti (Sesuai Video) */
+    /* 3. Logika Kartu Trait Interaktif yang Berganti */
     const traits = [
       { title: "Problem Solver", desc: "Menganalisis kebutuhan pesan sebelum merancang visual." },
       { title: "Detail-Oriented", desc: "Ketelitian tinggi pada tata letak grid, tipografi, dan warna." },
@@ -827,7 +857,6 @@
       const subtitle = document.getElementById('traitSubtitle');
       const index = document.getElementById('traitIndex');
 
-      // Animasi transisi teks cepat
       title.style.opacity = '0';
       subtitle.style.opacity = '0';
       setTimeout(() => {
@@ -855,7 +884,7 @@
       showToast("Pesan Anda telah berhasil dikirim!");
     }
 
-    /* 5. Data & Logika Modal Arsip (Technical & Digital Projects) */
+    /* 5. Data & Logika Modal Arsip */
     const archiveProjects = {
       technical: [
         { name: "Desain Film Promosi 'Melangkah'", category: "Video & Editorial", year: "2026", desc: "Dokumentasi perancangan naskah film, storyboard, dan materi promosi kampus." },
