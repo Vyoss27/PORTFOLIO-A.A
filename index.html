@@ -287,7 +287,7 @@
           </div>
         </div>
 
-        <!-- Detail Keterangan Kategori Aktif (Judul Sesuai Kategori Masing-Masing) -->
+        <!-- Detail Keterangan Kategori Aktif -->
         <div class="text-center mt-8 max-w-xl mx-auto px-4">
           <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white transition-all tracking-tight">
             Brand Identity
@@ -756,7 +756,7 @@
       </div>
     </div>
 
-    <!-- Grid Portofolio Khusus Kategori (Mendukung Live WebAR Embed & Launch Button) -->
+    <!-- Grid Portofolio Khusus Kategori (Tanpa Foto Preview Bawah) -->
     <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4"></div>
 
     <!-- Footer Halaman Kategori -->
@@ -999,7 +999,7 @@
 
     updateCarousel();
 
-    /* 3. DATA HALAMAN KATEGORI KHUSUS (DENGAN TAUTAN AR-BETA V01) */
+    /* 3. DATA HALAMAN KATEGORI KHUSUS */
     const categoriesMeta = {
       branding: {
         title: "Brand Identity & Visual System",
@@ -1043,11 +1043,7 @@
           role: "Lead Brand Designer",
           tools: "Illustrator, Photoshop, InDesign",
           deliverables: "Logo Suite, Brand Guidelines (32 Halaman), Stationary, Mockups",
-          cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80"
         },
         {
           title: "60th HUT Batang - Visual Identity System",
@@ -1057,11 +1053,7 @@
           role: "Graphic Designer",
           tools: "Adobe Illustrator",
           deliverables: "Logo, Guidelines, OOH Billboards, Stage Assets",
-          cover: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80"
         }
       ],
       video: [
@@ -1073,11 +1065,7 @@
           role: "Videographer & Video Editor",
           tools: "Sony A7IV, Premiere Pro, After Effects",
           deliverables: "1x Full Recap (3 Min), 3x Reels/TikTok Cut",
-          cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
         },
         {
           title: "Film Pendek Promosi 'Melangkah'",
@@ -1087,11 +1075,7 @@
           role: "Director of Photography & Colorist",
           tools: "Premiere Pro, DaVinci Resolve",
           deliverables: "Short Promotional Film (5 Min), Teaser 30s",
-          cover: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80"
         }
       ],
       social: [
@@ -1103,11 +1087,7 @@
           role: "Content & Visual Designer",
           tools: "Photoshop, Figma, Illustrator",
           deliverables: "15x Carousel Sets, 30x Story Templates",
-          cover: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80"
         }
       ],
       print: [
@@ -1119,11 +1099,7 @@
           role: "Exhibition Lead Designer",
           tools: "Adobe InDesign, Illustrator",
           deliverables: "Large Format Print Files, Catalog Layout (48 Halaman)",
-          cover: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1507842229451-7f01be837a27?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80"
         }
       ],
       uiux: [
@@ -1135,11 +1111,7 @@
           role: "UI/UX Designer & Front-End Developer",
           tools: "Figma, Tailwind CSS, JavaScript",
           deliverables: "Figma Interactive Prototype, Production Code",
-          cover: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80"
         }
       ],
       creative: [
@@ -1152,11 +1124,7 @@
           tools: "WebAR, Three.js, 3D Assets, JavaScript",
           deliverables: "Live WebAR Application, 3D Interactive Spatial Viewer",
           liveUrl: "https://feby-akliji23.github.io/AR-BETA_V01/",
-          cover: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80"
         },
         {
           title: "Cyberpunk Retro Computing - 3D Environment",
@@ -1167,10 +1135,7 @@
           tools: "Blender 3D, Cycles Render, Photoshop",
           deliverables: "4K Still Renders, Turntable Animation",
           liveUrl: "",
-          cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
-          subImages: [
-            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-          ]
+          cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
         }
       ]
     };
@@ -1220,12 +1185,12 @@
         activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm";
       }
 
+      // Render Grid Proyek (Foto preview bawah sudah ditiadakan)
       const grid = document.getElementById('categoryProjectsGrid');
       grid.innerHTML = projects.map(p => `
         <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300">
           <div>
             ${p.liveUrl ? `
-              <!-- Live WebAR Interactive Viewport -->
               <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5 group">
                 <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking" loading="lazy"></iframe>
                 <div class="absolute top-3 right-3 z-20 flex items-center gap-2">
@@ -1235,7 +1200,6 @@
                 </div>
               </div>
             ` : `
-              <!-- Standard Cover Image -->
               <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5">
                 <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
               </div>
@@ -1256,7 +1220,6 @@
             </div>
 
             ${p.liveUrl ? `
-              <!-- Tombol Peluncuran Langsung WebAR -->
               <div class="mt-5">
                 <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md">
                   <span>Buka WebAR (Fullscreen / Tab Baru)</span>
@@ -1264,14 +1227,6 @@
                 </a>
               </div>
             ` : ''}
-          </div>
-
-          <div class="mt-5 grid grid-cols-2 gap-2">
-            ${p.subImages.map(img => `
-              <div class="aspect-video rounded-xl overflow-hidden border border-lightBorder dark:border-darkBorder">
-                <img src="${img}" alt="Preview" class="w-full h-full object-cover">
-              </div>
-            `).join('')}
           </div>
         </div>
       `).join('');
@@ -1333,7 +1288,7 @@
       }, 150);
     }
 
-    /* 7. MODAL KONTAK & NOTIFIKASI */
+    /* 7. MODAL PESAN CEPAT & NOTIFIKASI */
     function toggleContactModal(show) {
       const modal = document.getElementById('contactModal');
       if (show) modal.classList.remove('hidden');
