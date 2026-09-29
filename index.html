@@ -287,7 +287,7 @@
           </div>
         </div>
 
-        <!-- Detail Keterangan Kategori Aktif (Badge Dihapus, Judul Menjadi Nama Kategori) -->
+        <!-- Detail Keterangan Kategori Aktif (Judul Sesuai Kategori Masing-Masing) -->
         <div class="text-center mt-8 max-w-xl mx-auto px-4">
           <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white transition-all tracking-tight">
             Brand Identity
@@ -303,7 +303,7 @@
           </div>
         </div>
 
-        <!-- 6 Titik Indikator Dot Bulat (Bisa Diklik Langsung) -->
+        <!-- 6 Titik Indikator Dot Bulat -->
         <div id="carouselDotsContainer" class="flex items-center gap-2 mt-6"></div>
       </div>
     </section>
@@ -565,7 +565,7 @@
                 <i class="fa-solid fa-award"></i>
               </div>
               <div>
-                <h4 class="text-sm font-bold text-neutral-900 dark:text-white">Karya Tugas Akhir Film Promosi UDINUS </h4>
+                <h4 class="text-sm font-bold text-neutral-900 dark:text-white">Karya Tugas Akhir Film Promosi "Melangkah"</h4>
                 <p class="text-xs text-neutral-500 dark:text-neutral-400">Pameran Desain Komunikasi Visual &middot; Booth Eksibisi Terbaik</p>
               </div>
             </div>
@@ -756,7 +756,7 @@
       </div>
     </div>
 
-    <!-- Grid Portofolio Khusus Kategori -->
+    <!-- Grid Portofolio Khusus Kategori (Mendukung Live WebAR Embed & Launch Button) -->
     <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4"></div>
 
     <!-- Footer Halaman Kategori -->
@@ -812,9 +812,9 @@
     Pemberitahuan
   </div>
 
-  <!-- ================= JAVASCRIPT: DATA 6 KATEGORI & CAROUSEL SLIDER ================= -->
+  <!-- ================= JAVASCRIPT: DATA & CAROUSEL SLIDER ================= -->
   <script>
-    /* 1. DATA 6 KATEGORI DENGAN JUDUL SESUAI KATEGORI MASING-MASING */
+    /* 1. DATA 6 KATEGORI CAROUSEL BERANDA */
     const homeSlidesData = [
       {
         title: "Brand Identity",
@@ -857,12 +857,12 @@
         img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Creative & 3D Environment",
-        desc: "Eksplorasi visual render ruang 3D Blender, tipografi eksperimental brutalist, pencahayaan neon cyberpunk, dan simulasi spasial personal.",
+        title: "Creative & 3D",
+        desc: "Eksplorasi WebAR Interaktif 3D berbasis web (AR-BETA V01), pemodelan 3D, dan integrasi teknologi spasial visual digital.",
         categoryKey: "creative",
         btnText: "LIHAT SEMUA PROYEK CREATIVE & 3D →",
         hintText: "Buka Halaman Creative & 3D",
-        img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
+        img: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80"
       }
     ];
 
@@ -910,17 +910,14 @@
       const actionBtn = document.getElementById('cActionBtn');
       const centerHint = document.getElementById('cCenterActionHint');
 
-      // Hitung indeks circular loop (0 - 5)
       const prevIdx = (currentSlide - 1 + totalSlides) % totalSlides;
       const currIdx = currentSlide;
       const nextIdx = (currentSlide + 1) % totalSlides;
 
-      // Update gambar tiap kartu
       imgLeft.src = homeSlidesData[prevIdx].img;
       imgCenter.src = homeSlidesData[currIdx].img;
       imgRight.src = homeSlidesData[nextIdx].img;
 
-      // Posisi 3D Cards
       cardCenter.style.transform = 'translateX(0) scale(1) translateZ(0)';
       cardCenter.style.zIndex = '30';
       cardCenter.style.opacity = '1';
@@ -936,7 +933,6 @@
       cardRight.style.opacity = '0.42';
       cardRight.style.filter = 'blur(1px)';
 
-      // Update Keterangan Teks
       const activeData = homeSlidesData[currIdx];
       titleElem.textContent = activeData.title;
       descElem.textContent = activeData.desc;
@@ -944,13 +940,11 @@
       actionBtn.innerHTML = `<span>${activeData.btnText}</span>`;
       centerHint.innerHTML = `<span>${activeData.hintText}</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>`;
 
-      // Update 6 Titik Dot Indikator
       const dotsContainer = document.getElementById('carouselDotsContainer');
       dotsContainer.innerHTML = homeSlidesData.map((_, idx) => `
         <button onclick="goToSlide(${idx})" title="${homeSlidesData[idx].title}" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 hover:bg-neutral-500'} transition-all"></button>
       `).join('');
 
-      // Sinkronkan styling pill tab di atas galeri
       document.querySelectorAll('.home-cat-tab').forEach(btn => {
         btn.className = "home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2 text-neutral-600 dark:text-neutral-300";
       });
@@ -1003,10 +997,9 @@
       }
     });
 
-    // Inisialisasi awal carousel
     updateCarousel();
 
-    /* 3. DATA HALAMAN KATEGORI KHUSUS */
+    /* 3. DATA HALAMAN KATEGORI KHUSUS (DENGAN TAUTAN AR-BETA V01) */
     const categoriesMeta = {
       branding: {
         title: "Brand Identity & Visual System",
@@ -1035,8 +1028,8 @@
       },
       creative: {
         title: "Creative Exploration & 3D Environment",
-        tag: "3D & VISUAL EXPERIMENTS",
-        desc: "Eksplorasi visual render ruang 3D (Blender), tipografi eksperimental brutalist, dan manipulasi gambar digital personal."
+        tag: "3D & WEBAR EXPERIMENTS",
+        desc: "Eksplorasi visual Augmented Reality (WebAR) interaktif, render ruang 3D, dan simulasi spasial digital berbasis peramban."
       }
     };
 
@@ -1087,7 +1080,7 @@
           ]
         },
         {
-          title: "Film Pendek Promosi UDINUS",
+          title: "Film Pendek Promosi 'Melangkah'",
           year: "2026",
           desc: "Penyusunan narasi visual, pengambilan adegan sinematik, serta penyuntingan dan penilaian warna (color grading) untuk promosi kampus.",
           client: "Fakultas Ilmu Komputer",
@@ -1151,6 +1144,21 @@
       ],
       creative: [
         {
+          title: "Interactive WebAR 3D Experience (AR-BETA V01)",
+          year: "2026",
+          desc: "Implementasi teknologi Augmented Reality (WebAR) interaktif berbasis web, memungkinkan pengguna berinteraksi langsung dengan objek 3D real-time melalui kamera browser tanpa instalasi aplikasi tambahan.",
+          client: "Interactive WebAR Prototype",
+          role: "3D & WebAR Visual Developer",
+          tools: "WebAR, Three.js, 3D Assets, JavaScript",
+          deliverables: "Live WebAR Application, 3D Interactive Spatial Viewer",
+          liveUrl: "https://feby-akliji23.github.io/AR-BETA_V01/",
+          cover: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80",
+          subImages: [
+            "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+          ]
+        },
+        {
           title: "Cyberpunk Retro Computing - 3D Environment",
           year: "2026",
           desc: "Eksplorasi render ruang kerja komputer retro tahun 80-an berpadu dengan pencahayaan neon neon-lit cyberpunk futuristik.",
@@ -1158,6 +1166,7 @@
           role: "3D Artist",
           tools: "Blender 3D, Cycles Render, Photoshop",
           deliverables: "4K Still Renders, Turntable Animation",
+          liveUrl: "",
           cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
           subImages: [
             "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
@@ -1215,21 +1224,48 @@
       grid.innerHTML = projects.map(p => `
         <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300">
           <div>
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5">
-              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-            </div>
+            ${p.liveUrl ? `
+              <!-- Live WebAR Interactive Viewport -->
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5 group">
+                <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking" loading="lazy"></iframe>
+                <div class="absolute top-3 right-3 z-20 flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/90 text-white text-[9px] font-bold uppercase tracking-wider backdrop-blur">
+                    &bull; LIVE AR INTERACTIVE
+                  </span>
+                </div>
+              </div>
+            ` : `
+              <!-- Standard Cover Image -->
+              <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5">
+                <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              </div>
+            `}
+
             <div class="flex items-center justify-between text-xs mb-2">
               <span class="font-bold text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
               <span class="font-mono text-neutral-400">${p.year}</span>
             </div>
+            
             <h3 class="text-xl font-bold text-neutral-900 dark:text-white">${p.title}</h3>
             <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-2 leading-relaxed">${p.desc}</p>
+            
             <div class="mt-4 pt-4 border-t border-lightBorder/60 dark:border-darkBorder/60 text-[11px] space-y-1 text-neutral-500 dark:text-neutral-400">
               <p><strong class="text-neutral-700 dark:text-neutral-300">Klien:</strong> ${p.client}</p>
               <p><strong class="text-neutral-700 dark:text-neutral-300">Software:</strong> ${p.tools}</p>
               <p><strong class="text-neutral-700 dark:text-neutral-300">Deliverables:</strong> ${p.deliverables}</p>
             </div>
+
+            ${p.liveUrl ? `
+              <!-- Tombol Peluncuran Langsung WebAR -->
+              <div class="mt-5">
+                <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md">
+                  <span>Buka WebAR (Fullscreen / Tab Baru)</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              </div>
+            ` : ''}
           </div>
+
           <div class="mt-5 grid grid-cols-2 gap-2">
             ${p.subImages.map(img => `
               <div class="aspect-video rounded-xl overflow-hidden border border-lightBorder dark:border-darkBorder">
@@ -1297,7 +1333,7 @@
       }, 150);
     }
 
-    /* 7. MODAL PESAN CEPAT & NOTIFIKASI */
+    /* 7. MODAL KONTAK & NOTIFIKASI */
     function toggleContactModal(show) {
       const modal = document.getElementById('contactModal');
       if (show) modal.classList.remove('hidden');
