@@ -303,11 +303,11 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2: WHAT I CAN DO (IKON DIPERBESAR & SIMETRIS) ================= -->
+    <!-- ================= SECTION 2: WHAT I CAN DO ================= -->
     <section id="what-i-can-do" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         
-        <!-- Sisi Kiri: Deskripsi & Grid 10 Gambar Ikon Diperbesar -->
+        <!-- Sisi Kiri: Deskripsi & Grid 10 Gambar Ikon Asli di Folder ICONS/ -->
         <div class="lg:col-span-6 flex flex-col justify-between">
           <div>
             <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
@@ -862,7 +862,7 @@
       </div>
     </div>
 
-    <!-- Grid Portofolio Khusus Kategori -->
+    <!-- Grid Portofolio Khusus Kategori (Mendukung Video Embed & WebAR) -->
     <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4"></div>
 
     <!-- Footer Halaman Kategori -->
@@ -932,7 +932,7 @@
       },
       {
         title: "Video & Motion",
-        desc: "Produksi video sinematik, video dokumentasi rekap dinamis untuk gelaran acara nasional, pascaproduksi, color grading, dan motion graphics.",
+        desc: "Produksi video sinematik, aftermovie acara korporat, bumper motion graphics, video opening ceremony, dan teaser promosi digital.",
         categoryKey: "video",
         btnText: "LIHAT SEMUA PROYEK VIDEO & MOTION →",
         hintText: "Buka Halaman Video & Motion",
@@ -1105,7 +1105,7 @@
 
     updateCarousel();
 
-    /* 3. DATA HALAMAN KATEGORI KHUSUS */
+    /* 3. DATA HALAMAN KATEGORI KHUSUS (DENGAN 6 VIDEO GOOGLE DRIVE LENGKAP) */
     const categoriesMeta = {
       branding: {
         title: "Brand Identity & Visual System",
@@ -1115,7 +1115,7 @@
       video: {
         title: "Video Production & Motion Graphics",
         tag: "VIDEO & MOTION",
-        desc: "Karya sinematografi, video dokumentasi/rekap acara bertaraf nasional, pascaproduksi, penilaian warna (color grading), dan animasi teks gerak."
+        desc: "Karya sinematografi, aftermovie dokumentasi acara resmi, bumper animasi grafis, opening video sequence, dan teaser kampanye promosi digital."
       },
       social: {
         title: "Social Media & Digital Marketing Kit",
@@ -1164,24 +1164,70 @@
       ],
       video: [
         {
-          title: "Event Video Recap & Cinematic Campaign",
+          title: "Aftermovie Event Dokumentasi BRI Life",
           year: "2026",
-          desc: "Produksi video rekap dinamis untuk gelaran acara lari bertaraf nasional, merangkum dokumentasi visual dan materi promosi digital.",
-          client: "National Sports Festival",
+          desc: "Produksi video aftermovie sinematik merangkum dokumentasi visual dan kemeriahan rangkaian acara resmi BRI Life dengan transisi dinamis dan penilaian warna (color grading) profesional.",
+          client: "BRI Life",
           role: "Videographer & Video Editor",
-          tools: "Sony A7IV, Premiere Pro, After Effects",
-          deliverables: "1x Full Recap (3 Min), 3x Reels/TikTok Cut",
-          cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
+          tools: "Premiere Pro, DaVinci Resolve, Sony A-Series",
+          deliverables: "Full Event Aftermovie HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=sharing"
         },
         {
-          title: "Film Pendek Promosi 'Melangkah'",
+          title: "Motion Graphic Bumper KMI",
           year: "2026",
-          desc: "Penyusunan narasi visual, pengambilan adegan sinematik, serta penyuntingan dan penilaian warna (color grading) untuk promosi kampus.",
-          client: "Fakultas Ilmu Komputer",
-          role: "Director of Photography & Colorist",
+          desc: "Perancangan animasi bumper identitas grafis acara Kriyasana Mahasiswa Desain Grafis Indonesia (KMDGI) dengan tipografi kinetik tegas dan transisi gerak modern.",
+          client: "Kriyasana Mahasiswa Desain Grafis Indonesia",
+          role: "Motion Graphic Designer",
+          tools: "After Effects, Illustrator",
+          deliverables: "Animated Motion Bumper HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1ZNyALbqsdujAArXtR6tMpSo6PXxjMktG/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1ZNyALbqsdujAArXtR6tMpSo6PXxjMktG/view?usp=drive_link"
+        },
+        {
+          title: "Opening Video Sequence - Bluebird",
+          year: "2026",
+          desc: "Rangkaian opening video bertema korporat Bluebird yang memadukan footage armada, animasi teks gerak, dan perpaduan ritme audio yang dinamis.",
+          client: "Bluebird Group",
+          role: "Video Editor & Motion Designer",
+          tools: "Premiere Pro, After Effects",
+          deliverables: "Opening Video Sequence HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1sXJDnXWWwxrg9QhVon7ohKZF4AhNEPhX/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1sXJDnXWWwxrg9QhVon7ohKZF4AhNEPhX/view?usp=drive_link"
+        },
+        {
+          title: "Opening Ceremony Video - KMI",
+          year: "2026",
+          desc: "Video seremoni pembuka acara KMI yang memadukan dokumentasi visual eksibisi karya seni, tipografi tematis, serta sound design yang dramatis.",
+          client: "Kriyasana Mahasiswa Desain Grafis Indonesia",
+          role: "Video Director & Editor",
+          tools: "Premiere Pro, After Effects, Audition",
+          deliverables: "Event Opening Ceremony Video HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1o78F88r4AGcaXBA30_95x575E5nJrAzt/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1o78F88r4AGcaXBA30_95x575E5nJrAzt/view?usp=drive_link"
+        },
+        {
+          title: "Teaser Video Campaign - Bluebird",
+          year: "2026",
+          desc: "Video cuplikan (teaser) kampanye layanan Bluebird dengan penyuntingan tempo cepat (fast-paced cut) dan visual modern untuk promosi media sosial.",
+          client: "Bluebird Group",
+          role: "Video Editor & Colorist",
+          tools: "Premiere Pro, After Effects",
+          deliverables: "Social Media Promotional Teaser HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1---rs_xtjGzraMPvyt7Ecx2DlrcCEVwP/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1---rs_xtjGzraMPvyt7Ecx2DlrcCEVwP/view?usp=drive_link"
+        },
+        {
+          title: "Teaser Video Promosi Kampus UDINUS",
+          year: "2026",
+          desc: "Video teaser promosi kampus Universitas Dian Nuswantoro yang menonjolkan lingkungan kampus dinamis, teknologi modern, serta kreativitas mahasiswa.",
+          client: "Universitas Dian Nuswantoro",
+          role: "Director of Photography & Video Editor",
           tools: "Premiere Pro, DaVinci Resolve",
-          deliverables: "Short Promotional Film (5 Min), Teaser 30s",
-          cover: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80"
+          deliverables: "Campus Promotional Teaser HD (.mp4)",
+          videoEmbedUrl: "https://drive.google.com/file/d/1jsGTXjwYFWrDUhZJw95k4ItOAihtdDxP/preview",
+          videoDriveUrl: "https://drive.google.com/file/d/1jsGTXjwYFWrDUhZJw95k4ItOAihtdDxP/view?usp=drive_link"
         }
       ],
       social: [
@@ -1291,11 +1337,18 @@
         activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm";
       }
 
+      // Render Grid Proyek (Mendukung Video Embed & WebAR)
       const grid = document.getElementById('categoryProjectsGrid');
       grid.innerHTML = projects.map(p => `
         <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300">
           <div>
-            ${p.liveUrl ? `
+            ${p.videoEmbedUrl ? `
+              <!-- Google Drive Video Player Embed -->
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5 shadow-inner">
+                <iframe src="${p.videoEmbedUrl}" class="w-full h-full border-0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+              </div>
+            ` : p.liveUrl ? `
+              <!-- WebAR Live Embed -->
               <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5 group">
                 <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking" loading="lazy"></iframe>
                 <div class="absolute top-3 right-3 z-20 flex items-center gap-2">
@@ -1305,6 +1358,7 @@
                 </div>
               </div>
             ` : `
+              <!-- Standard Cover Image -->
               <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-5">
                 <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
               </div>
@@ -1324,7 +1378,14 @@
               <p><strong class="text-neutral-700 dark:text-neutral-300">Deliverables:</strong> ${p.deliverables}</p>
             </div>
 
-            ${p.liveUrl ? `
+            ${p.videoDriveUrl ? `
+              <div class="mt-5">
+                <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md">
+                  <span>Tonton di Google Drive</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              </div>
+            ` : p.liveUrl ? `
               <div class="mt-5">
                 <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md">
                   <span>Buka WebAR (Fullscreen / Tab Baru)</span>
