@@ -200,7 +200,7 @@
       </a>
     </section>
 
-    <!-- ================= SECTION 1: WORK GALLERY (6 KATEGORI BISA DI-SLIDE) ================= -->
+    <!-- ================= SECTION 1: WORK GALLERY ================= -->
     <section id="work" class="py-24 max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
@@ -267,12 +267,12 @@
           
           <!-- Kartu Kiri (Previous Slide) -->
           <div id="cCardLeft" onclick="prevSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImgLeft" src="" alt="Proyek Sebelumnya" class="w-full h-full object-cover">
+            <img id="cImgLeft" src="" alt="Kategori Sebelumnya" class="w-full h-full object-cover">
           </div>
 
           <!-- Kartu Tengah (Active Current Slide) -->
           <div id="cCardCenter" onclick="openCurrentCategoryPage()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard group">
-            <img id="cImgCenter" src="" alt="Proyek Aktif" class="w-full h-full object-cover">
+            <img id="cImgCenter" src="" alt="Kategori Aktif" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
               <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
                 <span>Buka Detail Kategori</span>
@@ -283,37 +283,28 @@
 
           <!-- Kartu Kanan (Next Slide) -->
           <div id="cCardRight" onclick="nextSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImgRight" src="" alt="Proyek Berikutnya" class="w-full h-full object-cover">
+            <img id="cImgRight" src="" alt="Kategori Berikutnya" class="w-full h-full object-cover">
           </div>
         </div>
 
-        <!-- Detail Keterangan Proyek Aktif -->
+        <!-- Detail Keterangan Kategori Aktif (Badge Dihapus, Judul Menjadi Nama Kategori) -->
         <div class="text-center mt-8 max-w-xl mx-auto px-4">
-          <div class="inline-flex items-center gap-2 mb-2">
-            <span id="cCategoryBadge" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">
-              BRAND IDENTITY
-            </span>
-            <span id="cYearBadge" class="text-xs font-mono text-neutral-400">2026</span>
-          </div>
-
-          <h3 id="cTitle" class="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white transition-all">
-            Bumi Training Center - Comprehensive Brand Book
+          <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white transition-all tracking-tight">
+            Brand Identity
           </h3>
-          <p id="cDesc" class="text-neutral-500 dark:text-neutral-400 text-sm mt-2 leading-relaxed">
-            Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, dan mockup merchandise.
+          <p id="cDesc" class="text-neutral-500 dark:text-neutral-400 text-sm mt-2.5 leading-relaxed">
+            Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, dan merchandise.
           </p>
 
           <div class="mt-5">
             <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
-              <span>LIHAT SEMUA PROYEK INI &rarr;</span>
+              <span>LIHAT SEMUA PROYEK BRAND IDENTITY &rarr;</span>
             </button>
           </div>
         </div>
 
         <!-- 6 Titik Indikator Dot Bulat (Bisa Diklik Langsung) -->
-        <div id="carouselDotsContainer" class="flex items-center gap-2 mt-6">
-          <!-- Diisi otomatis oleh JavaScript sesuai 6 kategori -->
-        </div>
+        <div id="carouselDotsContainer" class="flex items-center gap-2 mt-6"></div>
       </div>
     </section>
 
@@ -823,63 +814,51 @@
 
   <!-- ================= JAVASCRIPT: DATA 6 KATEGORI & CAROUSEL SLIDER ================= -->
   <script>
-    /* 1. DATA 6 KATEGORI LENGKAP UNTUK CAROUSEL BERANDA */
+    /* 1. DATA 6 KATEGORI DENGAN JUDUL SESUAI KATEGORI MASING-MASING */
     const homeSlidesData = [
       {
-        title: "Bumi Training Center - Comprehensive Brand Book",
+        title: "Brand Identity",
         desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, dan merchandise.",
-        category: "BRAND IDENTITY",
-        year: "2026",
         categoryKey: "branding",
         btnText: "LIHAT SEMUA PROYEK BRAND IDENTITY →",
         hintText: "Buka Halaman Brand Identity",
         img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Event Video Recap & Cinematic Campaign",
-        desc: "Produksi video rekap dinamis untuk gelaran acara lari bertaraf nasional, merangkum dokumentasi visual dan materi promosi digital.",
-        category: "VIDEO & MOTION",
-        year: "2026",
+        title: "Video & Motion",
+        desc: "Produksi video sinematik, video dokumentasi rekap dinamis untuk gelaran acara nasional, pascaproduksi, color grading, dan motion graphics.",
         categoryKey: "video",
         btnText: "LIHAT SEMUA PROYEK VIDEO & MOTION →",
         hintText: "Buka Halaman Video & Motion",
         img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Campaign Visual Kit & Educational Carousel",
+        title: "Social Media Kit",
         desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular dan visual data yang terstruktur.",
-        category: "SOCIAL MEDIA KIT",
-        year: "2026",
         categoryKey: "social",
         btnText: "LIHAT SEMUA PROYEK SOCIAL MEDIA →",
         hintText: "Buka Halaman Social Media Kit",
         img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Poster Eksibisi Pameran DKV (124x244 cm)",
-        desc: "Desain poster raksasa pameran akhir studi DKV dengan eksplorasi tipografi vernakular dan grid Swiss-style modern.",
-        category: "PRINT & PACKAGING",
-        year: "2026",
+        title: "Print & Packaging",
+        desc: "Desain poster eksibisi format besar (124x244 cm), tata letak editorial buletin majalah mahasiswa, katalog pameran, dan pola pisau kemasan (dieline).",
         categoryKey: "print",
         btnText: "LIHAT SEMUA PROYEK PRINT & PACKAGING →",
         hintText: "Buka Halaman Print & Packaging",
         img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Creative Studio Web Portfolio Interface",
-        desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas dan komponen interaktif.",
-        category: "UI/UX & WEB INTERFACE",
-        year: "2026",
+        title: "UI/UX & Web Interface",
+        desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas, user flow, dan komponen Figma terpadu.",
         categoryKey: "uiux",
         btnText: "LIHAT SEMUA PROYEK UI/UX & WEB →",
         hintText: "Buka Halaman UI/UX & Web",
         img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80"
       },
       {
-        title: "Cyberpunk Retro Computing - 3D Environment",
-        desc: "Eksplorasi render ruang kerja komputer retro tahun 80-an berpadu dengan pencahayaan neon neon-lit cyberpunk futuristik.",
-        category: "CREATIVE & 3D",
-        year: "2026",
+        title: "Creative & 3D Environment",
+        desc: "Eksplorasi visual render ruang 3D Blender, tipografi eksperimental brutalist, pencahayaan neon cyberpunk, dan simulasi spasial personal.",
         categoryKey: "creative",
         btnText: "LIHAT SEMUA PROYEK CREATIVE & 3D →",
         hintText: "Buka Halaman Creative & 3D",
@@ -888,7 +867,7 @@
     ];
 
     let currentSlide = 0;
-    const totalSlides = homeSlidesData.length; // 6 Kategori
+    const totalSlides = homeSlidesData.length;
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % totalSlides;
@@ -928,12 +907,10 @@
 
       const titleElem = document.getElementById('cTitle');
       const descElem = document.getElementById('cDesc');
-      const catBadge = document.getElementById('cCategoryBadge');
-      const yrBadge = document.getElementById('cYearBadge');
       const actionBtn = document.getElementById('cActionBtn');
       const centerHint = document.getElementById('cCenterActionHint');
 
-      // Hitung indeks kiri dan kanan secara memutar (circular loop 0 - 5)
+      // Hitung indeks circular loop (0 - 5)
       const prevIdx = (currentSlide - 1 + totalSlides) % totalSlides;
       const currIdx = currentSlide;
       const nextIdx = (currentSlide + 1) % totalSlides;
@@ -959,20 +936,18 @@
       cardRight.style.opacity = '0.42';
       cardRight.style.filter = 'blur(1px)';
 
-      // Update Informasi Teks
+      // Update Keterangan Teks
       const activeData = homeSlidesData[currIdx];
       titleElem.textContent = activeData.title;
       descElem.textContent = activeData.desc;
-      catBadge.textContent = activeData.category;
-      yrBadge.textContent = activeData.year;
       
       actionBtn.innerHTML = `<span>${activeData.btnText}</span>`;
       centerHint.innerHTML = `<span>${activeData.hintText}</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>`;
 
-      // Update 6 Titik Indikator Dot Bulat
+      // Update 6 Titik Dot Indikator
       const dotsContainer = document.getElementById('carouselDotsContainer');
       dotsContainer.innerHTML = homeSlidesData.map((_, idx) => `
-        <button onclick="goToSlide(${idx})" title="${homeSlidesData[idx].category}" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 hover:bg-neutral-500'} transition-all"></button>
+        <button onclick="goToSlide(${idx})" title="${homeSlidesData[idx].title}" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 hover:bg-neutral-500'} transition-all"></button>
       `).join('');
 
       // Sinkronkan styling pill tab di atas galeri
@@ -991,7 +966,6 @@
     let isDragging = false;
     let dragThreshold = 45;
 
-    // Layar Sentuh HP
     dragArea.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
@@ -1007,7 +981,6 @@
       else if (diffX > dragThreshold) prevSlide();
     }, { passive: true });
 
-    // Mouse Drag Desktop
     dragArea.addEventListener('mousedown', (e) => {
       startX = e.clientX;
       isDragging = true;
@@ -1023,7 +996,6 @@
       else if (diffX > dragThreshold) prevSlide();
     });
 
-    // Keyboard Arrow
     window.addEventListener('keydown', (e) => {
       if (!document.getElementById('homeView').classList.contains('hidden')) {
         if (e.key === 'ArrowRight') nextSlide();
@@ -1031,7 +1003,7 @@
       }
     });
 
-    // Inisialisasi awal carousel 6 slide
+    // Inisialisasi awal carousel
     updateCarousel();
 
     /* 3. DATA HALAMAN KATEGORI KHUSUS */
@@ -1325,7 +1297,7 @@
       }, 150);
     }
 
-    /* 7. MODAL KONTAK & NOTIFIKASI */
+    /* 7. MODAL PESAN CEPAT & NOTIFIKASI */
     function toggleContactModal(show) {
       const modal = document.getElementById('contactModal');
       if (show) modal.classList.remove('hidden');
