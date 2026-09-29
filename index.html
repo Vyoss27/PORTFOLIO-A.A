@@ -49,7 +49,7 @@
       will-change: transform;
     }
 
-    /* Tipografi Outline Hero Section */
+    /* Tipografi Outline Hero Section yang Tebal */
     .hero-outline-text {
       -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.48);
       color: rgba(255, 255, 255, 0.04);
@@ -200,18 +200,18 @@
       </a>
     </section>
 
-    <!-- ================= SECTION 1: WORK GALLERY (BISA DI-SLIDE KIRI-KANAN) ================= -->
+    <!-- ================= SECTION 1: WORK GALLERY (6 KATEGORI BISA DI-SLIDE) ================= -->
     <section id="work" class="py-24 max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
           <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
-            SELECTED WORK
+            SELECTED WORK &middot; 6 CATEGORIES
           </span>
           <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">
             Work Gallery
           </h2>
           <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-xl">
-            Geser (*swipe / drag*) kartu ke kiri atau kanan, atau gunakan tombol navigasi untuk melihat pilihan karya.
+            Geser (*swipe / drag*) kartu ke kiri atau kanan untuk menjelajahi ke-6 kategori portofolio DKV.
           </p>
         </div>
 
@@ -221,58 +221,58 @@
         </button>
       </div>
 
-      <!-- TAB KATEGORI: SHORTCUT MASUK KE HALAMAN MASING-MASING -->
+      <!-- TAB 6 KATEGORI LENGKAP -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 border-b border-lightBorder/60 dark:border-darkBorder/60">
-        <button onclick="navigateToCategoryPage('branding')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('branding')" id="ptab-branding" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Brand Identity</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
-        <button onclick="navigateToCategoryPage('video')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('video')" id="ptab-video" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Video & Motion</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
-        <button onclick="navigateToCategoryPage('social')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('social')" id="ptab-social" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Social Media Kit</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
-        <button onclick="navigateToCategoryPage('print')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('print')" id="ptab-print" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Print & Packaging</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
-        <button onclick="navigateToCategoryPage('uiux')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('uiux')" id="ptab-uiux" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>UI/UX & Web</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
-        <button onclick="navigateToCategoryPage('creative')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="goToSlideByKey('creative')" id="ptab-creative" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Creative & 3D</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-neutral-400"></i>
         </button>
       </div>
 
-      <!-- 3D CAROUSEL DENGAN FITUR SLIDE / SWIPE / DRAG -->
+      <!-- 3D CAROUSEL 6 KATEGORI (SLIDE / SWIPE / DRAG) -->
       <div class="carousel-perspective relative w-full flex flex-col items-center select-none">
         
-        <!-- Tombol Panah Kiri (Slide Prev) -->
+        <!-- Tombol Panah Kiri -->
         <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-left text-sm"></i>
         </button>
 
-        <!-- Tombol Panah Kanan (Slide Next) -->
+        <!-- Tombol Panah Kanan -->
         <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-right text-sm"></i>
         </button>
 
-        <!-- Area Kartu Geser Interaktif (Drag & Swipe Target) -->
+        <!-- Area Kartu Geser 3D Interaktif -->
         <div id="carouselDragArea" class="drag-area relative w-full max-w-3xl h-64 md:h-96 flex items-center justify-center">
           
-          <!-- Card 0 -->
-          <div id="cCard0" onclick="setCarouselSlide(0)" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImg0" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Brand Identity" class="w-full h-full object-cover">
+          <!-- Kartu Kiri (Previous Slide) -->
+          <div id="cCardLeft" onclick="prevSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
+            <img id="cImgLeft" src="" alt="Proyek Sebelumnya" class="w-full h-full object-cover">
           </div>
 
-          <!-- Card 1 -->
-          <div id="cCard1" onclick="setCarouselSlide(1)" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard group">
-            <img id="cImg1" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Video Recap" class="w-full h-full object-cover">
+          <!-- Kartu Tengah (Active Current Slide) -->
+          <div id="cCardCenter" onclick="openCurrentCategoryPage()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard group">
+            <img id="cImgCenter" src="" alt="Proyek Aktif" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
               <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
                 <span>Buka Detail Kategori</span>
@@ -281,40 +281,38 @@
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div id="cCard2" onclick="setCarouselSlide(2)" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImg2" src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80" alt="Exhibition Poster" class="w-full h-full object-cover">
+          <!-- Kartu Kanan (Next Slide) -->
+          <div id="cCardRight" onclick="nextSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
+            <img id="cImgRight" src="" alt="Proyek Berikutnya" class="w-full h-full object-cover">
           </div>
         </div>
 
-        <!-- Detail Keterangan Proyek yang Sedang Tampil di Tengah -->
+        <!-- Detail Keterangan Proyek Aktif -->
         <div class="text-center mt-8 max-w-xl mx-auto px-4">
           <div class="inline-flex items-center gap-2 mb-2">
             <span id="cCategoryBadge" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">
-              VIDEO & PRODUCTION
+              BRAND IDENTITY
             </span>
             <span id="cYearBadge" class="text-xs font-mono text-neutral-400">2026</span>
           </div>
 
           <h3 id="cTitle" class="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white transition-all">
-            Event Video Recap & Cinematic Campaign
+            Bumi Training Center - Comprehensive Brand Book
           </h3>
           <p id="cDesc" class="text-neutral-500 dark:text-neutral-400 text-sm mt-2 leading-relaxed">
-            Produksi video rekap dinamis untuk gelaran acara lari bertaraf nasional, merangkum dokumentasi visual dan materi promosi digital.
+            Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, dan mockup merchandise.
           </p>
 
           <div class="mt-5">
-            <button id="cActionBtn" onclick="navigateToCategoryPage('video')" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
-              <span>LIHAT SEMUA PROYEK VIDEO &rarr;</span>
+            <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
+              <span>LIHAT SEMUA PROYEK INI &rarr;</span>
             </button>
           </div>
         </div>
 
-        <!-- Indikator Dot Bulat di Bawah -->
-        <div class="flex items-center gap-2 mt-6">
-          <button onclick="setCarouselSlide(0)" class="c-dot w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 transition-all"></button>
-          <button onclick="setCarouselSlide(1)" class="c-dot w-6 h-2 rounded-full bg-neutral-900 dark:bg-white transition-all"></button>
-          <button onclick="setCarouselSlide(2)" class="c-dot w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 transition-all"></button>
+        <!-- 6 Titik Indikator Dot Bulat (Bisa Diklik Langsung) -->
+        <div id="carouselDotsContainer" class="flex items-center gap-2 mt-6">
+          <!-- Diisi otomatis oleh JavaScript sesuai 6 kategori -->
         </div>
       </div>
     </section>
@@ -756,7 +754,7 @@
         Kumpulan proyek perancangan logo, panduan grafis merek (brand guidelines), materi promosi korporat, hingga kemasan komersial.
       </p>
 
-      <!-- Navigasi Cepat Kategori Lain -->
+      <!-- Navigasi Cepat 6 Kategori di Halaman Kategori -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-8">
         <button onclick="navigateToCategoryPage('branding')" id="cnav-branding" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Brand Identity</button>
         <button onclick="navigateToCategoryPage('video')" id="cnav-video" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Video & Motion</button>
@@ -823,29 +821,39 @@
     Pemberitahuan
   </div>
 
-  <!-- ================= JAVASCRIPT: LOGIKA GESER / SLIDE LENGKAP ================= -->
+  <!-- ================= JAVASCRIPT: DATA 6 KATEGORI & CAROUSEL SLIDER ================= -->
   <script>
-    /* 1. DATA SLIDE CAROUSEL BERANDA */
+    /* 1. DATA 6 KATEGORI LENGKAP UNTUK CAROUSEL BERANDA */
     const homeSlidesData = [
       {
-        title: "Bumi Training Center - Brand Identity System",
-        desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, dan mockup merchandise.",
+        title: "Bumi Training Center - Comprehensive Brand Book",
+        desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, dan merchandise.",
         category: "BRAND IDENTITY",
         year: "2026",
         categoryKey: "branding",
-        btnText: "LIHAT SEMUA PROYEK BRANDING →",
+        btnText: "LIHAT SEMUA PROYEK BRAND IDENTITY →",
         hintText: "Buka Halaman Brand Identity",
         img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80"
       },
       {
         title: "Event Video Recap & Cinematic Campaign",
         desc: "Produksi video rekap dinamis untuk gelaran acara lari bertaraf nasional, merangkum dokumentasi visual dan materi promosi digital.",
-        category: "VIDEO & PRODUCTION",
+        category: "VIDEO & MOTION",
         year: "2026",
         categoryKey: "video",
-        btnText: "LIHAT SEMUA PROYEK VIDEO →",
+        btnText: "LIHAT SEMUA PROYEK VIDEO & MOTION →",
         hintText: "Buka Halaman Video & Motion",
         img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        title: "Campaign Visual Kit & Educational Carousel",
+        desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular dan visual data yang terstruktur.",
+        category: "SOCIAL MEDIA KIT",
+        year: "2026",
+        categoryKey: "social",
+        btnText: "LIHAT SEMUA PROYEK SOCIAL MEDIA →",
+        hintText: "Buka Halaman Social Media Kit",
+        img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80"
       },
       {
         title: "Poster Eksibisi Pameran DKV (124x244 cm)",
@@ -853,14 +861,34 @@
         category: "PRINT & PACKAGING",
         year: "2026",
         categoryKey: "print",
-        btnText: "LIHAT SEMUA PROYEK CETAK →",
+        btnText: "LIHAT SEMUA PROYEK PRINT & PACKAGING →",
         hintText: "Buka Halaman Print & Packaging",
         img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        title: "Creative Studio Web Portfolio Interface",
+        desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas dan komponen interaktif.",
+        category: "UI/UX & WEB INTERFACE",
+        year: "2026",
+        categoryKey: "uiux",
+        btnText: "LIHAT SEMUA PROYEK UI/UX & WEB →",
+        hintText: "Buka Halaman UI/UX & Web",
+        img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        title: "Cyberpunk Retro Computing - 3D Environment",
+        desc: "Eksplorasi render ruang kerja komputer retro tahun 80-an berpadu dengan pencahayaan neon neon-lit cyberpunk futuristik.",
+        category: "CREATIVE & 3D",
+        year: "2026",
+        categoryKey: "creative",
+        btnText: "LIHAT SEMUA PROYEK CREATIVE & 3D →",
+        hintText: "Buka Halaman Creative & 3D",
+        img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80"
       }
     ];
 
-    let currentSlide = 1;
-    const totalSlides = homeSlidesData.length;
+    let currentSlide = 0;
+    const totalSlides = homeSlidesData.length; // 6 Kategori
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % totalSlides;
@@ -872,19 +900,32 @@
       updateCarousel();
     }
 
-    function setCarouselSlide(idx) {
-      if (idx === currentSlide) {
-        // Jika kartu tengah yang diklik, langsung arahkan ke halaman kategori proyek tersebut
-        navigateToCategoryPage(homeSlidesData[currentSlide].categoryKey);
-        return;
-      }
+    function goToSlide(idx) {
       currentSlide = idx;
       updateCarousel();
     }
 
+    function goToSlideByKey(catKey) {
+      const idx = homeSlidesData.findIndex(item => item.categoryKey === catKey);
+      if (idx !== -1) {
+        currentSlide = idx;
+        updateCarousel();
+      }
+    }
+
+    function openCurrentCategoryPage() {
+      navigateToCategoryPage(homeSlidesData[currentSlide].categoryKey);
+    }
+
     function updateCarousel() {
-      const cards = [document.getElementById('cCard0'), document.getElementById('cCard1'), document.getElementById('cCard2')];
-      const dots = document.querySelectorAll('.c-dot');
+      const cardLeft = document.getElementById('cCardLeft');
+      const cardCenter = document.getElementById('cCardCenter');
+      const cardRight = document.getElementById('cCardRight');
+
+      const imgLeft = document.getElementById('cImgLeft');
+      const imgCenter = document.getElementById('cImgCenter');
+      const imgRight = document.getElementById('cImgRight');
+
       const titleElem = document.getElementById('cTitle');
       const descElem = document.getElementById('cDesc');
       const catBadge = document.getElementById('cCategoryBadge');
@@ -892,55 +933,65 @@
       const actionBtn = document.getElementById('cActionBtn');
       const centerHint = document.getElementById('cCenterActionHint');
 
-      // Hitung posisi 3D Card
-      cards.forEach((card, index) => {
-        if (index === currentSlide) {
-          card.style.transform = 'translateX(0) scale(1) translateZ(0)';
-          card.style.zIndex = '30';
-          card.style.opacity = '1';
-          card.style.filter = 'none';
-        } else if (index < currentSlide || (currentSlide === 0 && index === 2)) {
-          card.style.transform = 'translateX(-38%) scale(0.85) rotateY(15deg) translateZ(-50px)';
-          card.style.zIndex = '10';
-          card.style.opacity = '0.42';
-          card.style.filter = 'blur(1px)';
-        } else {
-          card.style.transform = 'translateX(38%) scale(0.85) rotateY(-15deg) translateZ(-50px)';
-          card.style.zIndex = '10';
-          card.style.opacity = '0.42';
-          card.style.filter = 'blur(1px)';
-        }
-      });
+      // Hitung indeks kiri dan kanan secara memutar (circular loop 0 - 5)
+      const prevIdx = (currentSlide - 1 + totalSlides) % totalSlides;
+      const currIdx = currentSlide;
+      const nextIdx = (currentSlide + 1) % totalSlides;
 
-      // Update Teks & Informasi Proyek yang Aktif
-      const activeData = homeSlidesData[currentSlide];
+      // Update gambar tiap kartu
+      imgLeft.src = homeSlidesData[prevIdx].img;
+      imgCenter.src = homeSlidesData[currIdx].img;
+      imgRight.src = homeSlidesData[nextIdx].img;
+
+      // Posisi 3D Cards
+      cardCenter.style.transform = 'translateX(0) scale(1) translateZ(0)';
+      cardCenter.style.zIndex = '30';
+      cardCenter.style.opacity = '1';
+      cardCenter.style.filter = 'none';
+
+      cardLeft.style.transform = 'translateX(-38%) scale(0.85) rotateY(15deg) translateZ(-50px)';
+      cardLeft.style.zIndex = '10';
+      cardLeft.style.opacity = '0.42';
+      cardLeft.style.filter = 'blur(1px)';
+
+      cardRight.style.transform = 'translateX(38%) scale(0.85) rotateY(-15deg) translateZ(-50px)';
+      cardRight.style.zIndex = '10';
+      cardRight.style.opacity = '0.42';
+      cardRight.style.filter = 'blur(1px)';
+
+      // Update Informasi Teks
+      const activeData = homeSlidesData[currIdx];
       titleElem.textContent = activeData.title;
       descElem.textContent = activeData.desc;
       catBadge.textContent = activeData.category;
       yrBadge.textContent = activeData.year;
       
       actionBtn.innerHTML = `<span>${activeData.btnText}</span>`;
-      actionBtn.onclick = () => navigateToCategoryPage(activeData.categoryKey);
-      
       centerHint.innerHTML = `<span>${activeData.hintText}</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>`;
 
-      // Update Dots Indikator
-      dots.forEach((dot, idx) => {
-        if (idx === currentSlide) {
-          dot.className = "c-dot w-6 h-2 rounded-full bg-neutral-900 dark:bg-white transition-all";
-        } else {
-          dot.className = "c-dot w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 transition-all";
-        }
+      // Update 6 Titik Indikator Dot Bulat
+      const dotsContainer = document.getElementById('carouselDotsContainer');
+      dotsContainer.innerHTML = homeSlidesData.map((_, idx) => `
+        <button onclick="goToSlide(${idx})" title="${homeSlidesData[idx].category}" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 hover:bg-neutral-500'} transition-all"></button>
+      `).join('');
+
+      // Sinkronkan styling pill tab di atas galeri
+      document.querySelectorAll('.home-cat-tab').forEach(btn => {
+        btn.className = "home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2 text-neutral-600 dark:text-neutral-300";
       });
+      const activePill = document.getElementById(`ptab-${activeData.categoryKey}`);
+      if (activePill) {
+        activePill.className = "home-cat-tab shrink-0 px-4 py-2 rounded-full border border-neutral-900 dark:border-neutral-400 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm";
+      }
     }
 
-    /* 2. LOGIKA DRAG & SWIPE UNTUK GESTUR GESER KIRI / KANAN */
+    /* 2. LOGIKA DRAG & SWIPE GESTUR GESER */
     const dragArea = document.getElementById('carouselDragArea');
     let startX = 0;
     let isDragging = false;
-    let dragThreshold = 45; // jarak piksel geser agar terpicu berpindah slide
+    let dragThreshold = 45;
 
-    // Touch Events (Untuk Layar Sentuh HP & Tablet)
+    // Layar Sentuh HP
     dragArea.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
@@ -952,14 +1003,11 @@
       let endX = e.changedTouches[0].clientX;
       let diffX = endX - startX;
 
-      if (diffX < -dragThreshold) {
-        nextSlide(); // Geser ke kiri (buka slide berikutnya)
-      } else if (diffX > dragThreshold) {
-        prevSlide(); // Geser ke kanan (buka slide sebelumnya)
-      }
+      if (diffX < -dragThreshold) nextSlide();
+      else if (diffX > dragThreshold) prevSlide();
     }, { passive: true });
 
-    // Mouse Events (Untuk Klik & Tarik di Desktop / Laptop)
+    // Mouse Drag Desktop
     dragArea.addEventListener('mousedown', (e) => {
       startX = e.clientX;
       isDragging = true;
@@ -971,26 +1019,22 @@
       let endX = e.clientX;
       let diffX = endX - startX;
 
-      if (diffX < -dragThreshold) {
-        nextSlide();
-      } else if (diffX > dragThreshold) {
-        prevSlide();
-      }
+      if (diffX < -dragThreshold) nextSlide();
+      else if (diffX > dragThreshold) prevSlide();
     });
 
-    // Keyboard Arrow Listener (Tombol Kiri & Kanan di Keyboard)
+    // Keyboard Arrow
     window.addEventListener('keydown', (e) => {
-      // Hanya aktif saat berada di halaman utama
       if (!document.getElementById('homeView').classList.contains('hidden')) {
         if (e.key === 'ArrowRight') nextSlide();
         if (e.key === 'ArrowLeft') prevSlide();
       }
     });
 
-    // Inisialisasi awal carousel
+    // Inisialisasi awal carousel 6 slide
     updateCarousel();
 
-    /* 3. DATA LENGKAP HALAMAN KATEGORI (ROUTER) */
+    /* 3. DATA HALAMAN KATEGORI KHUSUS */
     const categoriesMeta = {
       branding: {
         title: "Brand Identity & Visual System",
@@ -1144,14 +1188,13 @@
           deliverables: "4K Still Renders, Turntable Animation",
           cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
           subImages: [
-            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
           ]
         }
       ]
     };
 
-    /* 4. ROUTER HALAMAN: BERANDA vs HALAMAN KATEGORI */
+    /* 4. ROUTER NAVIGASI HALAMAN */
     function navigateToCategoryPage(categoryKey) {
       window.location.hash = `#category-${categoryKey}`;
     }
@@ -1240,7 +1283,7 @@
     window.addEventListener('hashchange', handleRouting);
     window.addEventListener('DOMContentLoaded', handleRouting);
 
-    /* 5. THEME SWITCHER (DARK / LIGHT MODE) */
+    /* 5. THEME TOGGLE */
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
     const html = document.documentElement;
@@ -1282,7 +1325,7 @@
       }, 150);
     }
 
-    /* 7. MODAL PESAN CEPAT & NOTIFIKASI */
+    /* 7. MODAL KONTAK & NOTIFIKASI */
     function toggleContactModal(show) {
       const modal = document.getElementById('contactModal');
       if (show) modal.classList.remove('hidden');
