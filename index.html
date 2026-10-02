@@ -61,6 +61,7 @@
 
     .vertical-lr { writing-mode: vertical-lr; }
 
+    /* Perspective & Card Physics */
     .carousel-perspective { perspective: 1200px; }
     .carousel-card {
       transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -79,10 +80,10 @@
     .drag-area:active { cursor: grabbing; }
 
     .page-fade {
-      animation: fadeIn 0.35s ease-out forwards;
+      animation: fadeIn 0.3s ease-out forwards;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -127,7 +128,7 @@
   </header>
 
   <!-- ======================================================== -->
-  <!-- 1. HALAMAN UTAMA (HOME VIEW) -->
+  <!-- 1. BERANDA UTAMA (HOME VIEW) -->
   <!-- ======================================================== -->
   <main id="homeView" class="page-fade">
     
@@ -163,7 +164,7 @@
       </div>
     </section>
 
-    <!-- WORK GALLERY SECTION -->
+    <!-- SECTION 1: WORK GALLERY CAROUSEL -->
     <section id="work" class="py-24 max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
@@ -174,12 +175,12 @@
             Work Gallery
           </h2>
           <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-xl">
-            Pilih kategori di bawah untuk melihat daftar karya lengkap.
+            Pilih salah satu kategori di bawah atau klik kartu untuk **pindah ke halaman proyek kategori**.
           </p>
         </div>
       </div>
 
-      <!-- TAB KATEGORI -->
+      <!-- TAB KATEGORI (PINDAH PAGE) -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 border-b border-lightBorder/60 dark:border-darkBorder/60">
         <button onclick="navigateToCategoryPage('branding')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
           <span>Brand Identity</span>
@@ -207,13 +208,13 @@
         </button>
       </div>
 
-      <!-- 3D CAROUSEL -->
+      <!-- 3D CAROUSEL SLIDER -->
       <div class="carousel-perspective relative w-full flex flex-col items-center select-none">
-        <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 transition">
+        <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-left text-sm"></i>
         </button>
 
-        <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 transition">
+        <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-right text-sm"></i>
         </button>
 
@@ -226,7 +227,7 @@
             <img id="cImgCenter" src="" alt="Kategori Aktif" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
               <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
-                <span>LIHAT KARYA KATEGORI INI</span>
+                <span>PINDAH KE HALAMAN KATEGORI</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </span>
             </div>
@@ -243,7 +244,7 @@
 
           <div class="mt-5">
             <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
-              <span>EXPLORE ALL PROJECTS &rarr;</span>
+              <span>LIHAT SEMUA PROYEK KATEGORI INI &rarr;</span>
             </button>
           </div>
         </div>
@@ -252,7 +253,7 @@
       </div>
     </section>
 
-    <!-- SECTION WHAT I CAN DO -->
+    <!-- SECTION 2: WHAT I CAN DO -->
     <section id="what-i-can-do" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-6 flex flex-col justify-between">
@@ -260,7 +261,7 @@
             <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">MY CAPABILITIES & ARSENAL</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">What I Can Do</h2>
             <p class="text-neutral-500 dark:text-neutral-400 text-sm mt-3 leading-relaxed">
-              Menggabungkan keterampilan tata visual komunikasi, penyuntingan video dinamis, antarmuka digital, dan teknologi spasial.
+              Menggabungkan keterampilan tata visual komunikasi, penyuntingan video dinamis, antarmuka digital, dan teknologi spasial menggunakan standar perangkat lunak industri.
             </p>
           </div>
 
@@ -284,6 +285,26 @@
             <div title="Figma UI/UX" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
               <img src="ICONS/figma.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg';" alt="Figma" class="w-10 h-10 object-contain"/>
               <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Figma</span>
+            </div>
+            <div title="Canva" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+              <img src="ICONS/canva.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg';" alt="Canva" class="w-10 h-10 object-contain"/>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Canva</span>
+            </div>
+            <div title="CapCut Video Editor" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+              <img src="ICONS/capcut.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Capcut-logo.svg/512px-Capcut-logo.svg.png';" alt="CapCut" class="w-10 h-10 object-contain rounded-lg"/>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">CapCut</span>
+            </div>
+            <div title="Blender 3D" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+              <img src="ICONS/blender.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg';" alt="Blender 3D" class="w-10 h-10 object-contain"/>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Blender</span>
+            </div>
+            <div title="Trimble SketchUp" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+              <img src="ICONS/sketchup.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SketchUp_Logo.svg/512px-SketchUp_Logo.svg.png';" alt="SketchUp" class="w-10 h-10 object-contain"/>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">SketchUp</span>
+            </div>
+            <div title="ChatGPT & AI Workflow" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+              <img src="ICONS/chatgpt.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png';" alt="ChatGPT" class="w-10 h-10 object-contain"/>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">ChatGPT</span>
             </div>
           </div>
         </div>
@@ -316,7 +337,7 @@
       </div>
     </section>
 
-    <!-- SECTION ABOUT ME & CONTACT -->
+    <!-- SECTION 3: ABOUT ME -->
     <section id="about" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
       <div class="mb-10">
         <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">ABOUT ME</span>
@@ -339,6 +360,7 @@
       </div>
     </section>
 
+    <!-- SECTION 4: CONTACT & FOOTER -->
     <section id="contact" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div class="lg:col-span-6 flex flex-col justify-between">
@@ -369,7 +391,7 @@
   </main>
 
   <!-- ======================================================== -->
-  <!-- 2. HALAMAN KHUSUS KATEGORI (GRID KARYA) -->
+  <!-- 2. HALAMAN KHUSUS KATEGORI (CATEGORY PAGE VIEW) -->
   <!-- ======================================================== -->
   <main id="categoryPageView" class="hidden min-h-screen pt-24 pb-24 max-w-6xl mx-auto px-6 page-fade">
     
@@ -380,7 +402,7 @@
       </button>
 
       <div class="flex items-center gap-2 text-xs font-medium text-neutral-400">
-        <span onclick="goToHomePage()" class="cursor-pointer hover:underline">Portfolio</span>
+        <span onclick="goToHomePage()" class="cursor-pointer hover:underline">Beranda</span>
         <span>/</span>
         <span class="text-neutral-900 dark:text-white font-bold" id="pageBreadcrumbCategory">Brand Identity</span>
       </div>
@@ -388,16 +410,16 @@
 
     <div class="py-10">
       <span id="pageCategoryTag" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">
-        CATEGORY PORTFOLIO
+        KATEGORI PORTOFOLIO
       </span>
       <h1 id="pageCategoryTitle" class="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 dark:text-white mt-3 uppercase tracking-tight">
-        Brand Identity & Visual System
+        Brand Identity
       </h1>
       <p id="pageCategoryDesc" class="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl leading-relaxed">
-        Klik pada salah satu kartu karya di bawah untuk membuka **Pop-up Detail Karya**.
+        Deskripsi kategori...
       </p>
 
-      <!-- Navigasi Cepat Kategori -->
+      <!-- Navigasi Pindah Kategori Cepat -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-8">
         <button onclick="navigateToCategoryPage('branding')" id="cnav-branding" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Brand Identity</button>
         <button onclick="navigateToCategoryPage('video')" id="cnav-video" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Video & Motion</button>
@@ -408,23 +430,22 @@
       </div>
     </div>
 
-    <!-- Grid Portofolio Khusus Kategori -->
+    <!-- Grid Portofolio Kategori (Setiap Item Diklik -> Buka Pop-up) -->
     <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4"></div>
+
   </main>
 
-  <!-- ======================================================== -->
-  <!-- 3. POP-UP MODAL (POP-UP DETAIL PER KARYA INDIVIDUAL) -->
-  <!-- ======================================================== -->
-  <div id="singleProjectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-all duration-300">
-    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 sm:p-8 shadow-2xl no-scrollbar">
+  <!-- ================= POP-UP MODAL: DETAIL PROYEK INDIVIDUAL ================= -->
+  <div id="projectDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 sm:p-8 shadow-2xl no-scrollbar flex flex-col justify-between">
       
-      <!-- Tombol Tutup Pop-Up -->
-      <button onclick="closeSingleProjectModal()" aria-label="Tutup Detail Karya" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-neutral-200 dark:bg-darkBg text-neutral-600 dark:text-neutral-300 flex items-center justify-center text-sm hover:scale-105 transition z-20">
+      <!-- Tombol Close Modal -->
+      <button onclick="closeProjectDetailModal()" aria-label="Tutup Pop-up" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-neutral-200 dark:bg-darkBg text-neutral-600 dark:text-neutral-300 flex items-center justify-center text-sm hover:scale-105 transition z-20">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Tempat Konten Pop-up Dinamis -->
-      <div id="singleProjectModalContent"></div>
+      <!-- Konten Modal Dinamis -->
+      <div id="projectDetailModalContent" class="space-y-6"></div>
     </div>
   </div>
 
@@ -433,7 +454,7 @@
     Pemberitahuan
   </div>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     /* 1. DATA SLIDE CAROUSEL BERANDA */
     const homeSlidesData = [
@@ -482,6 +503,10 @@
     function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateCarousel(); }
 
     function updateCarousel() {
+      const cardLeft = document.getElementById('cCardLeft');
+      const cardCenter = document.getElementById('cCardCenter');
+      const cardRight = document.getElementById('cCardRight');
+
       const prevIdx = (currentSlide - 1 + totalSlides) % totalSlides;
       const currIdx = currentSlide;
       const nextIdx = (currentSlide + 1) % totalSlides;
@@ -489,6 +514,21 @@
       document.getElementById('cImgLeft').src = homeSlidesData[prevIdx].img;
       document.getElementById('cImgCenter').src = homeSlidesData[currIdx].img;
       document.getElementById('cImgRight').src = homeSlidesData[nextIdx].img;
+
+      cardCenter.style.transform = 'translateX(0) scale(1) translateZ(0)';
+      cardCenter.style.zIndex = '30';
+      cardCenter.style.opacity = '1';
+      cardCenter.style.filter = 'none';
+
+      cardLeft.style.transform = 'translateX(-38%) scale(0.85) rotateY(15deg) translateZ(-50px)';
+      cardLeft.style.zIndex = '10';
+      cardLeft.style.opacity = '0.45';
+      cardLeft.style.filter = 'blur(1px)';
+
+      cardRight.style.transform = 'translateX(38%) scale(0.85) rotateY(-15deg) translateZ(-50px)';
+      cardRight.style.zIndex = '10';
+      cardRight.style.opacity = '0.45';
+      cardRight.style.filter = 'blur(1px)';
 
       const activeData = homeSlidesData[currIdx];
       document.getElementById('cTitle').textContent = activeData.title;
@@ -504,38 +544,14 @@
       navigateToCategoryPage(homeSlidesData[currentSlide].categoryKey);
     }
 
-    /* 2. METADATA KATEGORI & DATABASE PROYEK LENGKAP */
+    /* 2. METADATA & DATABASE PROYEK LENGKAP */
     const categoriesMeta = {
-      branding: {
-        title: "Brand Identity & Visual System",
-        tag: "BRAND IDENTITY",
-        desc: "Kumpulan proyek perancangan logo, panduan grafis merek (brand guidelines), materi promosi korporat, hingga kemasan komersial."
-      },
-      video: {
-        title: "Video Production & Motion Graphics",
-        tag: "VIDEO & MOTION",
-        desc: "Karya sinematografi, aftermovie dokumentasi acara resmi, bumper animasi grafis PT Kabel Metal Indonesia, dan teaser promosi."
-      },
-      social: {
-        title: "Social Media & Digital Marketing Kit",
-        tag: "SOCIAL MEDIA DESIGN",
-        desc: "Perancangan konten microblogging carousel edukatif dan aset kampanye promosi digital terarah."
-      },
-      print: {
-        title: "Print, Publication & Packaging Design",
-        tag: "PRINT & PACKAGING",
-        desc: "Portofolio cetak lengkap mencakup gelang konser, jersey sublimasi, karcis parkir, gate pameran, backdrop stage, booth expo, notebook, dan beach flag."
-      },
-      uiux: {
-        title: "UI/UX & Web Interface",
-        tag: "UI/UX & WEB",
-        desc: "Perancangan antarmuka situs web interaktif modern berbasis Figma dan prototipe digital interaktif."
-      },
-      creative: {
-        title: "Creative Exploration & 3D Environment",
-        tag: "3D & WEBAR",
-        desc: "Eksplorasi visual Augmented Reality (WebAR) interaktif dan render ruang spasial 3D digital."
-      }
+      branding: { title: "Brand Identity & Visual System", tag: "BRAND IDENTITY", desc: "Kumpulan proyek perancangan logo, brand guidelines, dan materi promosi korporat." },
+      video: { title: "Video Production & Motion Graphics", tag: "VIDEO & MOTION", desc: "Karya sinematografi, aftermovie event, bumper motion graphics, dan teaser video promosi." },
+      social: { title: "Social Media & Digital Marketing Kit", tag: "SOCIAL MEDIA DESIGN", desc: "Perancangan konten carousel edukatif dan visual marketing digital." },
+      print: { title: "Print, Publication & Packaging Design", tag: "PRINT & PACKAGING", desc: "Portofolio cetak lengkap mencakup gelang konser, jersey, karcis parkir, gate, backdrop, booth expo, notes book, dan beach flag." },
+      uiux: { title: "UI/UX & Web Interface", tag: "UI/UX & WEB", desc: "Perancangan antarmuka situs web interaktif modern dan prototipe digital." },
+      creative: { title: "Creative Exploration & 3D Environment", tag: "3D & WEBAR", desc: "Eksplorasi WebAR interaktif 3D dan pemodelan spasial digital." }
     };
 
     const projectsDatabase = {
@@ -543,11 +559,11 @@
         {
           title: "Bumi Training Center - Comprehensive Brand Book",
           year: "2026",
-          desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, hingga penerapan merchandise dan stiker kendaraan.",
+          desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, palet warna, tipografi, kop surat, hingga merchandise.",
           client: "Bumi Training Center",
           role: "Lead Brand Designer",
           tools: "Illustrator, Photoshop, InDesign",
-          deliverables: "Logo Suite, Brand Guidelines (32 Halaman), Stationary, Mockups",
+          deliverables: "Logo Suite, Brand Guidelines, Stationary",
           cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80"
         },
         {
@@ -565,10 +581,10 @@
         {
           title: "Aftermovie Event Dokumentasi BRI Life",
           year: "2026",
-          desc: "Produksi video aftermovie sinematik merangkum dokumentasi visual dan kemeriahan rangkaian acara resmi BRI Life dengan transisi dinamis dan color grading profesional.",
+          desc: "Produksi video aftermovie sinematik merangkum dokumentasi visual dan kemeriahan acara resmi BRI Life.",
           client: "BRI Life",
           role: "Videographer & Video Editor",
-          tools: "Premiere Pro, DaVinci Resolve, Sony A-Series",
+          tools: "Premiere Pro, DaVinci Resolve",
           deliverables: "Full Event Aftermovie HD (.mp4)",
           cover: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80",
           videoDriveUrl: "https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=sharing"
@@ -576,7 +592,7 @@
         {
           title: "Motion Graphic Bumper - PT Kabel Metal Indonesia",
           year: "2026",
-          desc: "Perancangan animasi bumper identitas grafis acara PT Kabel Metal Indonesia dengan tipografi kinetik tegas dan transisi gerak modern.",
+          desc: "Perancangan animasi bumper identitas grafis acara PT Kabel Metal Indonesia dengan tipografi kinetik dan transisi modern.",
           client: "PT Kabel Metal Indonesia",
           role: "Motion Graphic Designer",
           tools: "After Effects, Illustrator",
@@ -598,10 +614,10 @@
         {
           title: "Opening Ceremony Video - PT Kabel Metal Indonesia",
           year: "2026",
-          desc: "Video seremoni pembuka acara resmi PT Kabel Metal Indonesia yang memadukan dokumentasi visual eksibisi karya industri, tipografi tematis, serta sound design dramatis.",
+          desc: "Video seremoni pembuka acara resmi PT Kabel Metal Indonesia yang memadukan dokumentasi visual, tipografi tematis, serta sound design dramatis.",
           client: "PT Kabel Metal Indonesia",
           role: "Video Director & Editor",
-          tools: "Premiere Pro, After Effects, Audition",
+          tools: "Premiere Pro, After Effects",
           deliverables: "Event Opening Ceremony Video HD (.mp4)",
           cover: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
           videoDriveUrl: "https://drive.google.com/file/d/1o78F88r4AGcaXBA30_95x575E5nJrAzt/view?usp=drive_link"
@@ -633,7 +649,7 @@
         {
           title: "Campaign Visual Kit & Educational Carousel",
           year: "2026",
-          desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular dan visual data yang mudah dipahami.",
+          desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular.",
           client: "Tech Startup Academy",
           role: "Content & Visual Designer",
           tools: "Photoshop, Figma, Illustrator",
@@ -645,7 +661,7 @@
         {
           title: "Gelang Konser / Wristband Tiket Event",
           year: "2026",
-          desc: "Desain gelang tiket (wristband pass) sintetis tahan air untuk akses pengunjung event, dilengkapi kode unik/barcode, serta identitas visual acara.",
+          desc: "Desain gelang tiket (wristband pass) sintetis tahan air untuk akses pengunjung event, dilengkapi barcode dan penomoran seri.",
           client: "Event Management",
           role: "Graphic & Merchandise Designer",
           tools: "Adobe Illustrator, Photoshop",
@@ -656,7 +672,7 @@
         {
           title: "Jersey Sublimasi Custom",
           year: "2026",
-          desc: "Perancangan pakaian jersey kustom dengan pola cetak sublimasi penuh (full sublimation print), tata letak logo sponsor, dan tipografi penomoran.",
+          desc: "Perancangan pakaian jersey kustom dengan pola cetak sublimasi penuh (full sublimation print), logo sponsor, dan tipografi penomoran.",
           client: "Sports Event & Apparel",
           role: "Apparel Designer",
           tools: "Adobe Illustrator, Photoshop",
@@ -746,11 +762,11 @@
         {
           title: "Creative Studio Web Portfolio Interface",
           year: "2026",
-          desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas dan kartu proyek 3D.",
+          desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas.",
           client: "Personal Showcase",
-          role: "UI/UX Designer & Front-End Developer",
-          tools: "Figma, Tailwind CSS, JavaScript",
-          deliverables: "Figma Interactive Prototype, Production Code",
+          role: "UI/UX Designer & Developer",
+          tools: "Figma, Tailwind CSS, JS",
+          deliverables: "Figma Prototype, Production Code",
           cover: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80"
         }
       ],
@@ -758,18 +774,18 @@
         {
           title: "Interactive WebAR 3D Experience (AR-BETA V01)",
           year: "2026",
-          desc: "Implementasi teknologi Augmented Reality (WebAR) interaktif berbasis web, memungkinkan pengguna berinteraksi langsung dengan objek 3D real-time melalui kamera browser tanpa instalasi aplikasi tambahan.",
-          client: "Interactive WebAR Prototype",
+          desc: "Implementasi teknologi Augmented Reality (WebAR) interaktif berbasis web tanpa instalasi aplikasi tambahan.",
+          client: "WebAR Prototype",
           role: "3D & WebAR Visual Developer",
-          tools: "WebAR, Three.js, 3D Assets, JavaScript",
-          deliverables: "Live WebAR Application, 3D Spatial Viewer",
+          tools: "WebAR, Three.js, JavaScript",
+          deliverables: "Live WebAR Application",
           liveUrl: "https://feby-akliji23.github.io/AR-BETA_V01/",
           cover: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80"
         }
       ]
     };
 
-    /* 3. ROUTER NAVIGASI HALAMAN & TAMPILAN GRID KATEGORI */
+    /* 3. ROUTER NAVIGASI HALAMAN & RENDER GRID HALAMAN KATEGORI */
     function navigateToCategoryPage(categoryKey) {
       window.location.hash = `#category-${categoryKey}`;
     }
@@ -779,7 +795,7 @@
     }
 
     function goToHomeSection(sectionId) {
-      if (document.getElementById('homeView').classList.contains('hidden')) {
+      if (!document.getElementById('categoryPageView').classList.contains('hidden')) {
         showHomeView();
       }
       setTimeout(() => {
@@ -794,997 +810,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* RENDER GRID KATEGORI DENGAN EVENT KLIK MEMBUKA POP-UP KARYA INDIVIDUAL */
-    function showCategoryView(catKey) {
-      const meta = categoriesMeta[catKey] || categoriesMeta.branding;
-      const projects = projectsDatabase[catKey] || [];
-
-      document.getElementById('homeView').classList.add('hidden');
-      document.getElementById('categoryPageView').classList.remove('hidden');
-
-      document.getElementById('pageBreadcrumbCategory').textContent = meta.title;
-      document.getElementById('pageCategoryTag').textContent = meta.tag;
-      document.getElementById('pageCategoryTitle').textContent = meta.title;
-
-      document.querySelectorAll('.cnav-btn').forEach(b => {
-        b.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder text-neutral-400 hover:text-black dark:hover:text-white";
-      });
-      const activeBtn = document.getElementById(`cnav-${catKey}`);
-      if (activeBtn) {
-        activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm";
-      }
-
-      /* KARTU PROYEK YANG DIKLIK UNTUK POP-UP INDIVIDUAL */
-      const grid = document.getElementById('categoryProjectsGrid');
-      grid.innerHTML = projects.map((p, idx) => `
-        <div onclick="openSingleProjectModal('${catKey}', ${idx})" class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300 cursor-pointer group">
-          <div>
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-4">
-              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                <span class="px-4 py-2 rounded-full bg-white text-neutral-900 text-[11px] font-bold tracking-wider uppercase shadow-xl flex items-center gap-1.5">
-                  <i class="fa-solid fa-expand text-[10px]"></i>
-                  <span>Buka Pop-Up Karya</span>
-                </span>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
-              <span class="font-mono text-neutral-400 text-[11px]">${p.year}</span>
-            </div>
-            
-            <h3 class="text-base font-bold text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition line-clamp-1">${p.title}</h3>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1.5 line-clamp-2 leading-relaxed">${p.desc}</p>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-lightBorder/60 dark:border-darkBorder/60 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-400">Klien: <strong class="text-neutral-700 dark:text-neutral-300">${p.client}</strong></span>
-            <span class="font-bold text-neutral-900 dark:text-white group-hover:translate-x-1 transition">&rarr;</span>
-          </div>
-        </div>
-      `).join('');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    /* 4. POPUP MODAL UNTUK DETAIL SINGLE KARYA */
-    function openSingleProjectModal(catKey, idx) {
-      const p = projectsDatabase[catKey][idx];
-      if (!p) return;
-
-      const modalContent = document.getElementById('singleProjectModalContent');
-      
-      modalContent.innerHTML = `
-        <div class="space-y-6">
-          ${p.liveUrl ? `
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900">
-              <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking"></iframe>
-            </div>
-          ` : `
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 flex items-center justify-center relative group">
-              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
-              ${p.videoDriveUrl ? `
-                <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white text-neutral-900 flex items-center justify-center shadow-xl hover:scale-110 transition">
-                    <i class="fa-solid fa-play ml-0.5"></i>
-                  </a>
-                </div>
-              ` : ''}
-            </div>
-          `}
-
-          <div>
-            <div class="flex items-center gap-3 text-xs mb-2">
-              <span class="font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
-              <span class="font-mono text-neutral-400">${p.year}</span>
-            </div>
-            
-            <h2 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">${p.title}</h2>
-            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mt-3 leading-relaxed">${p.desc}</p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-lightBg dark:bg-darkBg border border-lightBorder dark:border-darkBorder text-xs">
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Klien</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.client}</span>
-            </div>
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Software</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.tools}</span>
-            </div>
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Deliverables</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.deliverables}</span>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            ${p.videoDriveUrl ? `
-              <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Tonton Video di Google Drive</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : p.liveUrl ? `
-              <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Buka WebAR Fullscreen</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : p.driveId ? `
-              <a href="https://drive.google.com/file/d/${p.driveId}/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Buka Gambar HD di Google Drive</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : ''}
-
-            <button onclick="closeSingleProjectModal()" class="px-6 py-3 rounded-full border border-lightBorder dark:border-darkBorder text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 dark:hover:bg-darkCard transition">
-              Tutup Pop-Up
-            </button>
-          </div>
-        </div>
-      `;
-
-      const modal = document.getElementById('singleProjectModal');
-      modal.classList.remove('hidden');
-      setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeSingleProjectModal() {
-      const modal = document.getElementById('singleProjectModal');
-      modal.classList.add('opacity-0');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        document.getElementById('singleProjectModalContent').innerHTML = '';
-        document.body.style.overflow = 'auto';
-      }, 300);
-    }
-
-    document.getElementById('singleProjectModal').addEventListener('click', (e) => {
-      if (e.target === document.getElementById('singleProjectModal')) closeSingleProjectModal();
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSingleProjectModal();
-    });
-
-    function handleRouting() {
-      const hash = window.location.hash;
-      if (hash.startsWith('#category-')) {
-        const catKey = hash.replace('#category-', '');
-        showCategoryView(catKey);
-      } else {
-        showHomeView();
-      }
-    }
-    window.addEventListener('hashchange', handleRouting);
-    window.addEventListener('DOMContentLoaded', handleRouting);
-
-    /* 5. THEME TOGGLE */
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    const html = document.documentElement;
-
-    themeToggleBtn.addEventListener('click',Paham! Berarti alur yang diinginkan adalah:
-1. Halaman/tampilan kategori menampilkan deretan kartu **karya (proyek)**.
-2. Ketika salah satu kartu **karya** tersebut diklik, barulah muncul **Pop-up Modal Detail Karya** khusus untuk karya tersebut (berisi media gambar/video HD, deskripsi, klien, *software*, *deliverables*, serta tombol tautan Google Drive / WebAR).
-
-Berikut adalah kode lengkap `index.html` yang sudah diperbaiki secara total:
-
-```html
-<!DOCTYPE html>
-<html lang="id" class="dark scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio Pribadi | DKV & Creative Technologist</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-          },
-          colors: {
-            darkBg: '#0e0f12',
-            darkSurface: '#15161b',
-            darkCard: '#1a1b22',
-            darkBorder: '#272832',
-            lightBg: '#f3f4f6',
-            lightSurface: '#ffffff',
-            lightCard: '#ffffff',
-            lightBorder: '#e5e7eb',
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts & Font Awesome Icons -->
-  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap)" rel="stylesheet">
-  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)" />
-
-  <style>
-    @keyframes marqueeLoop {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
-    .animate-marquee {
-      display: flex;
-      width: max-content;
-      animation: marqueeLoop 24s linear infinite;
-      will-change: transform;
-    }
-
-    .hero-outline-text {
-      -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.48);
-      color: rgba(255, 255, 255, 0.04);
-      user-select: none;
-      letter-spacing: -0.03em;
-    }
-    html:not(.dark) .hero-outline-text {
-      -webkit-text-stroke: 2.5px rgba(15, 23, 42, 0.55);
-      color: rgba(15, 23, 42, 0.04);
-    }
-
-    .vertical-lr { writing-mode: vertical-lr; }
-
-    .carousel-perspective { perspective: 1200px; }
-    .carousel-card {
-      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-    .carousel-card img {
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .drag-area {
-      cursor: grab;
-      touch-action: pan-y;
-    }
-    .drag-area:active { cursor: grabbing; }
-
-    .page-fade {
-      animation: fadeIn 0.35s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
-</head>
-<body class="bg-lightBg text-neutral-800 dark:bg-darkBg dark:text-neutral-200 transition-colors duration-300 font-sans selection:bg-neutral-800 selection:text-white dark:selection:bg-white dark:selection:text-black">
-
-  <!-- ================= NAVBAR ================= -->
-  <header class="fixed top-0 left-0 right-0 z-40 border-b border-lightBorder/80 dark:border-darkBorder/80 bg-lightBg/80 dark:bg-darkBg/80 backdrop-blur-md transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#home" onclick="goToHomePage()" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 flex items-center justify-center font-black text-sm tracking-tighter">
-          A
-        </div>
-        <span class="font-extrabold text-sm tracking-wider uppercase text-neutral-900 dark:text-white group-hover:opacity-80 transition">
-          ARVIO
-        </span>
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-        <a href="#home" onclick="goToHomePage()" class="hover:text-black dark:hover:text-white transition">Home</a>
-        <a href="#work" onclick="goToHomeSection('work')" class="hover:text-black dark:hover:text-white transition">Work</a>
-        <a href="#what-i-can-do" onclick="goToHomeSection('what-i-can-do')" class="hover:text-black dark:hover:text-white transition">What I Can Do</a>
-        <a href="#about" onclick="goToHomeSection('about')" class="hover:text-black dark:hover:text-white transition">About</a>
-        <a href="#awards" onclick="goToHomeSection('awards')" class="hover:text-black dark:hover:text-white transition">Awards</a>
-        <a href="#trainings" onclick="goToHomeSection('trainings')" class="hover:text-black dark:hover:text-white transition">Trainings</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full border border-lightBorder dark:border-darkBorder flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-darkCard transition">
-          <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
-        </button>
-
-        <a href="#contact" onclick="goToHomeSection('contact')" class="px-5 py-2 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wide hover:opacity-90 transition">
-          Hire Me
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= 1. HALAMAN UTAMA (BERANDA) ================= -->
-  <main id="homeView" class="page-fade">
-    
-    <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-end justify-center overflow-hidden pt-20">
-      <div class="absolute inset-0 flex items-center overflow-hidden pointer-events-none select-none z-0">
-        <div class="animate-marquee flex items-center whitespace-nowrap">
-          <div class="flex items-center shrink-0">
-            <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-            <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
-            <span class="hero-outline-text text-[16vw] md:text-[14vw] font-black tracking-tighter leading-none uppercase px-8">ARVIO ANDRIANO</span>
-            <span class="hero-outline-text text-[9vw] font-black tracking-tighter leading-none uppercase px-4 opacity-50">&bull;</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative z-10 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl flex justify-center translate-y-3 pointer-events-none">
-        <img 
-          src="[https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3](https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3)" 
-          alt="Arvio Andriano" 
-          class="w-auto h-[82vh] md:h-[88vh] max-h-[92vh] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.75)]"
-          onerror="this.onerror=null; this.src='[https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3](https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3)';"
-        />
-      </div>
-
-      <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-lightBg dark:from-darkBg to-transparent z-[15] pointer-events-none"></div>
-
-      <div class="absolute right-6 bottom-10 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
-        <span class="vertical-lr text-[10px] font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">SCROLL DOWN</span>
-        <div class="w-[1px] h-10 bg-neutral-300 dark:bg-neutral-700 relative overflow-hidden">
-          <div class="w-full h-1/2 bg-neutral-800 dark:bg-neutral-200 animate-pulse"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 1: WORK GALLERY CAROUSEL -->
-    <section id="work" class="py-24 max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-        <div>
-          <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
-            SELECTED WORK &middot; 6 CATEGORIES
-          </span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">
-            Work Gallery
-          </h2>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-xl">
-            Pilih kategori untuk melihat daftar karya, lalu **klik pada kartu karya** untuk membuka Pop-up Detail.
-          </p>
-        </div>
-
-        <button onclick="navigateToCategoryPage('branding')" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard hover:border-neutral-500 transition">
-          <span>Jelajahi Semua Kategori</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
-      </div>
-
-      <!-- TAB 6 KATEGORI -->
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 border-b border-lightBorder/60 dark:border-darkBorder/60">
-        <button onclick="goToSlideByKey('branding')" id="ptab-branding" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          Brand Identity
-        </button>
-        <button onclick="goToSlideByKey('video')" id="ptab-video" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          Video & Motion
-        </button>
-        <button onclick="goToSlideByKey('social')" id="ptab-social" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          Social Media Kit
-        </button>
-        <button onclick="goToSlideByKey('print')" id="ptab-print" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          Print & Packaging
-        </button>
-        <button onclick="goToSlideByKey('uiux')" id="ptab-uiux" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          UI/UX & Web
-        </button>
-        <button onclick="goToSlideByKey('creative')" id="ptab-creative" class="home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition">
-          Creative & 3D
-        </button>
-      </div>
-
-      <!-- 3D CAROUSEL -->
-      <div class="carousel-perspective relative w-full flex flex-col items-center select-none">
-        <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-30 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
-          <i class="fa-solid fa-chevron-left text-sm"></i>
-        </button>
-
-        <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-30 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
-          <i class="fa-solid fa-chevron-right text-sm"></i>
-        </button>
-
-        <div id="carouselDragArea" class="drag-area relative w-full max-w-3xl h-64 md:h-96 flex items-center justify-center">
-          <div id="cCardLeft" onclick="prevSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImgLeft" src="" alt="Kategori Sebelumnya" class="w-full h-full object-cover">
-          </div>
-
-          <div id="cCardCenter" onclick="openCurrentCategoryPage()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard group">
-            <img id="cImgCenter" src="" alt="Kategori Aktif" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-              <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
-                <span>LIHAT KATALOG KARYA</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </span>
-            </div>
-          </div>
-
-          <div id="cCardRight" onclick="nextSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
-            <img id="cImgRight" src="" alt="Kategori Berikutnya" class="w-full h-full object-cover">
-          </div>
-        </div>
-
-        <div class="text-center mt-8 max-w-xl mx-auto px-4">
-          <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white transition-all tracking-tight">Brand Identity</h3>
-          <p id="cDesc" class="text-neutral-500 dark:text-neutral-400 text-sm mt-2.5 leading-relaxed">Perancangan sistem identitas visual korporat lengkap...</p>
-
-          <div class="mt-5">
-            <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
-              <span>LIHAT KATALOG KARYA &rarr;</span>
-            </button>
-          </div>
-        </div>
-
-        <div id="carouselDotsContainer" class="flex items-center gap-2 mt-6"></div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: WHAT I CAN DO -->
-    <section id="what-i-can-do" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        <div class="lg:col-span-6 flex flex-col justify-between">
-          <div>
-            <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">MY CAPABILITIES & ARSENAL</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">What I Can Do</h2>
-            <p class="text-neutral-500 dark:text-neutral-400 text-sm mt-3 leading-relaxed">
-              Menggabungkan keterampilan tata visual komunikasi, penyuntingan video dinamis, antarmuka digital, dan teknologi spasial menggunakan standar perangkat lunak industri.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-5 gap-3 sm:gap-3.5 mt-8">
-            <div title="Adobe Illustrator" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/Illustrator.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg)';" alt="Illustrator" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Illustrator</span>
-            </div>
-            <div title="Adobe Photoshop" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/photoshop.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg)';" alt="Photoshop" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Photoshop</span>
-            </div>
-            <div title="Adobe Premiere Pro" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/premier.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-plain.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-plain.svg)';" alt="Premiere" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Premiere</span>
-            </div>
-            <div title="Adobe After Effects" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/aftereffects.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-plain.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-plain.svg)';" alt="After Effects" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">After Effects</span>
-            </div>
-            <div title="Figma UI/UX" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/figma.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg)';" alt="Figma" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Figma</span>
-            </div>
-            <div title="Canva" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/canva.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg)';" alt="Canva" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Canva</span>
-            </div>
-            <div title="CapCut Video Editor" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/capcut.png" onerror="this.onerror=null; this.src='[https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Capcut-logo.svg/512px-Capcut-logo.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Capcut-logo.svg/512px-Capcut-logo.svg.png)';" alt="CapCut" class="w-10 h-10 object-contain rounded-lg"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">CapCut</span>
-            </div>
-            <div title="Blender 3D" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/blender.png" onerror="this.onerror=null; this.src='[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg)';" alt="Blender 3D" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Blender</span>
-            </div>
-            <div title="Trimble SketchUp" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/sketchup.png" onerror="this.onerror=null; this.src='[https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SketchUp_Logo.svg/512px-SketchUp_Logo.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SketchUp_Logo.svg/512px-SketchUp_Logo.svg.png)';" alt="SketchUp" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">SketchUp</span>
-            </div>
-            <div title="ChatGPT & AI Workflow" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
-              <img src="ICONS/chatgpt.png" onerror="this.onerror=null; this.src='[https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png)';" alt="ChatGPT" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">ChatGPT</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-7 flex flex-col justify-between shadow-sm">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="text-4xl font-extrabold text-neutral-300 dark:text-neutral-700">01</span>
-                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-neutral-100 dark:bg-darkBg text-neutral-500 dark:text-neutral-400">GRAPHIC & BRANDING</span>
-              </div>
-              <p class="text-xs text-neutral-600 dark:text-neutral-300 mt-6 leading-relaxed">
-                Membangun identitas visual terpadu mulai dari logo, buku panduan grafis (*brand guidelines*), materi pameran, hingga kemasan dan *vehicle wrapping*.
-              </p>
-            </div>
-          </div>
-
-          <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-7 flex flex-col justify-between shadow-sm">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="text-4xl font-extrabold text-neutral-300 dark:text-neutral-700">02</span>
-                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-neutral-100 dark:bg-darkBg text-neutral-500 dark:text-neutral-400">VIDEO & MEDIA</span>
-              </div>
-              <p class="text-xs text-neutral-600 dark:text-neutral-300 mt-6 leading-relaxed">
-                Mengeksekusi produksi video komprehensif mulai dari penyusunan alur cerita visual, pengoperasian kamera, *color grading*, hingga efek gerak dinamis.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: ABOUT ME -->
-    <section id="about" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
-      <div class="mb-10">
-        <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">ABOUT ME</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">Visual Storyteller. Creative Designer.</h2>
-      </div>
-
-      <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-8 mb-6 shadow-sm">
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-6 pb-6 border-b border-lightBorder dark:border-darkBorder">
-          <div class="w-16 h-16 rounded-full overflow-hidden border border-neutral-300 dark:border-neutral-700 shrink-0">
-            <img src="[https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3](https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3)" alt="Arvio Andriano" class="w-full h-full object-cover">
-          </div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-neutral-900 dark:text-white uppercase tracking-tight">ARVIO ANDRIANO</h3>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-0.5">Lulusan Desain Komunikasi Visual &middot; Certified Intermediate Graphic Designer</p>
-          </div>
-        </div>
-        <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mt-6">
-          Fokus pada eksplorasi komunikasi visual, produksi film pendek promosi, identitas merek, dan perancangan media digital interaktif.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 4: CONTACT & FOOTER -->
-    <section id="contact" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-6 flex flex-col justify-between">
-          <div>
-            <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">GET IN TOUCH</span>
-            <h2 class="text-5xl md:text-6xl font-black text-neutral-900 dark:text-white tracking-tight uppercase mt-2">LET'S WORK<br>TOGETHER</h2>
-          </div>
-          <div class="mt-10">
-            <a href="CV ARVIO ANDRIANO.pdf" download class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition">
-              <span>DOWNLOAD RESUME</span>
-              <i class="fa-solid fa-arrow-down text-xs"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-6 space-y-4">
-          <div onclick="copyText('arvioandriano@gmail.com', 'Email disalin!')" class="rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex items-center justify-between cursor-pointer hover:border-neutral-400 transition">
-            <span class="text-sm font-semibold">arvioandriano@gmail.com</span>
-            <span class="text-xs font-mono text-neutral-400">EMAIL &nearr;</span>
-          </div>
-          <a href="[https://wa.me/6289668184078](https://wa.me/6289668184078)" target="_blank" class="rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex items-center justify-between hover:border-neutral-400 transition">
-            <span class="text-sm font-semibold">+62 896-6818-4078</span>
-            <span class="text-xs font-mono text-neutral-400">WHATSAPP &nearr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= 2. HALAMAN KHUSUS KATEGORI ================= -->
-  <main id="categoryPageView" class="hidden min-h-screen pt-24 pb-24 max-w-6xl mx-auto px-6 page-fade">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-lightBorder dark:border-darkBorder">
-      <button onclick="goToHomePage()" class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition group">
-        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
-        <span>KEMBALI KE BERANDA</span>
-      </button>
-
-      <div class="flex items-center gap-2 text-xs font-medium text-neutral-400">
-        <span onclick="goToHomePage()" class="cursor-pointer hover:underline">Portfolio</span>
-        <span>/</span>
-        <span class="text-neutral-900 dark:text-white font-bold" id="pageBreadcrumbCategory">Brand Identity</span>
-      </div>
-    </div>
-
-    <div class="py-10">
-      <span id="pageCategoryTag" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">
-        CATEGORY PORTFOLIO
-      </span>
-      <h1 id="pageCategoryTitle" class="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 dark:text-white mt-3 uppercase tracking-tight">
-        Brand Identity & Visual System
-      </h1>
-      <p id="pageCategoryDesc" class="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl leading-relaxed">
-        Klik pada kartu karya di bawah untuk membuka **Pop-up Detail Proyek**.
-      </p>
-
-      <!-- Navigasi Cepat 6 Kategori -->
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-8">
-        <button onclick="navigateToCategoryPage('branding')" id="cnav-branding" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Brand Identity</button>
-        <button onclick="navigateToCategoryPage('video')" id="cnav-video" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Video & Motion</button>
-        <button onclick="navigateToCategoryPage('social')" id="cnav-social" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Social Media Kit</button>
-        <button onclick="navigateToCategoryPage('print')" id="cnav-print" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Print & Packaging</button>
-        <button onclick="navigateToCategoryPage('uiux')" id="cnav-uiux" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">UI/UX & Web</button>
-        <button onclick="navigateToCategoryPage('creative')" id="cnav-creative" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Creative & 3D</button>
-      </div>
-    </div>
-
-    <!-- Grid Kartu Karya (Tiap karya diklik akan membuka POP-UP MODAL DETAIL) -->
-    <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4"></div>
-  </main>
-
-  <!-- ================= POP-UP MODAL DETAIL KARYA (PROYEK SPESIFIK) ================= -->
-  <div id="projectDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
-    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 sm:p-8 shadow-2xl no-scrollbar flex flex-col justify-between">
-      
-      <button onclick="closeProjectDetailModal()" aria-label="Tutup Pop-Up" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-neutral-200 dark:bg-darkBg text-neutral-600 dark:text-neutral-300 flex items-center justify-center text-sm hover:scale-105 transition z-20">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <!-- Konten Pop-Up Dinamis -->
-      <div id="projectDetailModalContent"></div>
-    </div>
-  </div>
-
-  <!-- Toast Notifikasi -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl border border-darkBorder bg-darkCard text-white text-xs font-medium shadow-2xl opacity-0 translate-y-3 pointer-events-none transition-all duration-300">
-    Pemberitahuan
-  </div>
-
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script>
-    /* 1. DATA SLIDE CAROUSEL BERANDA */
-    const homeSlidesData = [
-      {
-        title: "Brand Identity",
-        desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, dan merchandise.",
-        categoryKey: "branding",
-        img: "[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80)"
-      },
-      {
-        title: "Video & Motion",
-        desc: "Produksi video sinematik, aftermovie acara korporat, bumper motion graphics PT Kabel Metal Indonesia, video opening ceremony, dan teaser promosi.",
-        categoryKey: "video",
-        img: "[https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80)"
-      },
-      {
-        title: "Social Media Kit",
-        desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular dan visual data terstruktur.",
-        categoryKey: "social",
-        img: "[https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80)"
-      },
-      {
-        title: "Print & Packaging",
-        desc: "Desain materi cetak pameran, gelang tiket festival, jersey apparel sublimasi, karcis parkir event, booth expo, hingga bendera promosi.",
-        categoryKey: "print",
-        img: "[https://lh3.googleusercontent.com/d/1muW_KqEFf-FkX1du2HvqI3vc73Q_gQqT](https://lh3.googleusercontent.com/d/1muW_KqEFf-FkX1du2HvqI3vc73Q_gQqT)"
-      },
-      {
-        title: "UI/UX & Web Interface",
-        desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas, user flow, dan komponen Figma.",
-        categoryKey: "uiux",
-        img: "[https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80)"
-      },
-      {
-        title: "Creative & 3D",
-        desc: "Eksplorasi WebAR Interaktif 3D berbasis web (AR-BETA V01), pemodelan 3D, dan integrasi teknologi spasial visual digital.",
-        categoryKey: "creative",
-        img: "[https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80)"
-      }
-    ];
-
-    let currentSlide = 0;
-    const totalSlides = homeSlidesData.length;
-
-    function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateCarousel(); }
-    function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateCarousel(); }
-
-    function goToSlideByKey(catKey) {
-      const idx = homeSlidesData.findIndex(item => item.categoryKey === catKey);
-      if (idx !== -1) { currentSlide = idx; updateCarousel(); }
-    }
-
-    function openCurrentCategoryPage() {
-      navigateToCategoryPage(homeSlidesData[currentSlide].categoryKey);
-    }
-
-    function updateCarousel() {
-      const cardLeft = document.getElementById('cCardLeft');
-      const cardCenter = document.getElementById('cCardCenter');
-      const cardRight = document.getElementById('cCardRight');
-
-      const prevIdx = (currentSlide - 1 + totalSlides) % totalSlides;
-      const currIdx = currentSlide;
-      const nextIdx = (currentSlide + 1) % totalSlides;
-
-      document.getElementById('cImgLeft').src = homeSlidesData[prevIdx].img;
-      document.getElementById('cImgCenter').src = homeSlidesData[currIdx].img;
-      document.getElementById('cImgRight').src = homeSlidesData[nextIdx].img;
-
-      cardCenter.style.transform = 'translateX(0) scale(1) translateZ(0)';
-      cardCenter.style.zIndex = '30';
-      cardCenter.style.opacity = '1';
-
-      cardLeft.style.transform = 'translateX(-38%) scale(0.85) rotateY(15deg) translateZ(-50px)';
-      cardLeft.style.zIndex = '10';
-      cardLeft.style.opacity = '0.45';
-
-      cardRight.style.transform = 'translateX(38%) scale(0.85) rotateY(-15deg) translateZ(-50px)';
-      cardRight.style.zIndex = '10';
-      cardRight.style.opacity = '0.45';
-
-      const activeData = homeSlidesData[currIdx];
-      document.getElementById('cTitle').textContent = activeData.title;
-      document.getElementById('cDesc').textContent = activeData.desc;
-
-      const dotsContainer = document.getElementById('carouselDotsContainer');
-      dotsContainer.innerHTML = homeSlidesData.map((_, idx) => `
-        <button onclick="currentSlide=${idx};updateCarousel();" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600'} transition-all"></button>
-      `).join('');
-
-      document.querySelectorAll('.home-cat-tab').forEach(btn => {
-        btn.className = "home-cat-tab shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition text-neutral-600 dark:text-neutral-300";
-      });
-      const activePill = document.getElementById(`ptab-${activeData.categoryKey}`);
-      if (activePill) {
-        activePill.className = "home-cat-tab shrink-0 px-4 py-2 rounded-full border border-neutral-900 dark:border-neutral-400 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider transition shadow-sm";
-      }
-    }
-
-    /* 2. METADATA & DATABASE PROYEK LENGKAP */
-    const categoriesMeta = {
-      branding: { title: "Brand Identity & Visual System", tag: "BRAND IDENTITY", desc: "Kumpulan proyek perancangan logo, brand guidelines, dan materi promosi korporat." },
-      video: { title: "Video Production & Motion Graphics", tag: "VIDEO & MOTION", desc: "Karya sinematografi, aftermovie event, bumper motion graphics, dan teaser video promosi." },
-      social: { title: "Social Media & Digital Marketing Kit", tag: "SOCIAL MEDIA DESIGN", desc: "Perancangan konten carousel edukatif dan visual marketing digital." },
-      print: { title: "Print, Publication & Packaging Design", tag: "PRINT & PACKAGING", desc: "Portofolio cetak lengkap mencakup gelang konser, jersey, karcis parkir, gate, backdrop, booth expo, notes book, dan beach flag." },
-      uiux: { title: "UI/UX & Web Interface", tag: "UI/UX & WEB", desc: "Perancangan antarmuka situs web interaktif modern dan prototipe digital." },
-      creative: { title: "Creative Exploration & 3D Environment", tag: "3D & WEBAR", desc: "Eksplorasi WebAR interaktif 3D dan pemodelan spasial digital." }
-    };
-
-    const projectsDatabase = {
-      branding: [
-        {
-          title: "Bumi Training Center - Comprehensive Brand Book",
-          year: "2026",
-          desc: "Perancangan sistem identitas visual korporat lengkap, pedoman safe-zone logo, filosofi palet warna, tipografi, kop surat, hingga penerapan merchandise dan stiker kendaraan.",
-          client: "Bumi Training Center",
-          role: "Lead Brand Designer",
-          tools: "Illustrator, Photoshop, InDesign",
-          deliverables: "Logo Suite, Brand Guidelines (32 Halaman), Stationary, Mockups",
-          cover: "[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80)"
-        },
-        {
-          title: "60th HUT Batang - Visual Identity System",
-          year: "2026",
-          desc: "Eksplorasi logo perayaan ulang tahun ke-60 dengan tema 'Energy of Java', disertai aset grafis dinamis untuk spanduk, baliho pameran, dan backdrop panggung.",
-          client: "Pemerintah Daerah Batang",
-          role: "Graphic Designer",
-          tools: "Adobe Illustrator",
-          deliverables: "Logo, Guidelines, OOH Billboards, Stage Assets",
-          cover: "[https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80)"
-        }
-      ],
-      video: [
-        {
-          title: "Aftermovie Event Dokumentasi BRI Life",
-          year: "2026",
-          desc: "Produksi video aftermovie sinematik merangkum dokumentasi visual dan kemeriahan rangkaian acara resmi BRI Life dengan transisi dinamis dan color grading profesional.",
-          client: "BRI Life",
-          role: "Videographer & Video Editor",
-          tools: "Premiere Pro, DaVinci Resolve, Sony A-Series",
-          deliverables: "Full Event Aftermovie HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=sharing](https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=sharing)"
-        },
-        {
-          title: "Motion Graphic Bumper - PT Kabel Metal Indonesia",
-          year: "2026",
-          desc: "Perancangan animasi bumper identitas grafis acara PT Kabel Metal Indonesia dengan tipografi kinetik tegas dan transisi gerak modern.",
-          client: "PT Kabel Metal Indonesia",
-          role: "Motion Graphic Designer",
-          tools: "After Effects, Illustrator",
-          deliverables: "Animated Motion Bumper HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1ZNyALbqsdujAArXtR6tMpSo6PXxjMktG/view?usp=drive_link](https://drive.google.com/file/d/1ZNyALbqsdujAArXtR6tMpSo6PXxjMktG/view?usp=drive_link)"
-        },
-        {
-          title: "Opening Video Sequence - Bluebird",
-          year: "2026",
-          desc: "Rangkaian opening video bertema korporat Bluebird yang memadukan footage armada, animasi teks gerak, dan perpaduan ritme audio yang dinamis.",
-          client: "Bluebird Group",
-          role: "Video Editor & Motion Designer",
-          tools: "Premiere Pro, After Effects",
-          deliverables: "Opening Video Sequence HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1sXJDnXWWwxrg9QhVon7ohKZF4AhNEPhX/view?usp=drive_link](https://drive.google.com/file/d/1sXJDnXWWwxrg9QhVon7ohKZF4AhNEPhX/view?usp=drive_link)"
-        },
-        {
-          title: "Opening Ceremony Video - PT Kabel Metal Indonesia",
-          year: "2026",
-          desc: "Video seremoni pembuka acara resmi PT Kabel Metal Indonesia yang memadukan dokumentasi visual eksibisi karya industri, tipografi tematis, serta sound design yang dramatis.",
-          client: "PT Kabel Metal Indonesia",
-          role: "Video Director & Editor",
-          tools: "Premiere Pro, After Effects, Audition",
-          deliverables: "Event Opening Ceremony Video HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1o78F88r4AGcaXBA30_95x575E5nJrAzt/view?usp=drive_link](https://drive.google.com/file/d/1o78F88r4AGcaXBA30_95x575E5nJrAzt/view?usp=drive_link)"
-        },
-        {
-          title: "Teaser Video Campaign - Bluebird",
-          year: "2026",
-          desc: "Video cuplikan (teaser) kampanye layanan Bluebird dengan penyuntingan tempo cepat (fast-paced cut) dan visual modern untuk promosi media sosial.",
-          client: "Bluebird Group",
-          role: "Video Editor & Colorist",
-          tools: "Premiere Pro, After Effects",
-          deliverables: "Social Media Promotional Teaser HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=drive_link](https://drive.google.com/file/d/1bxITTBW_Z1DWUTNhdgj7NfoUwS5MdZVv/view?usp=drive_link)"
-        },
-        {
-          title: "Teaser Video Promosi Kampus UDINUS",
-          year: "2026",
-          desc: "Video teaser promosi kampus Universitas Dian Nuswantoro yang menonjolkan lingkungan kampus dinamis, teknologi modern, serta kreativitas mahasiswa.",
-          client: "Universitas Dian Nuswantoro",
-          role: "Director of Photography & Video Editor",
-          tools: "Premiere Pro, DaVinci Resolve",
-          deliverables: "Campus Promotional Teaser HD (.mp4)",
-          cover: "[https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80)",
-          videoDriveUrl: "[https://drive.google.com/file/d/1jsGTXjwYFWrDUhZJw95k4ItOAihtdDxP/view?usp=drive_link](https://drive.google.com/file/d/1jsGTXjwYFWrDUhZJw95k4ItOAihtdDxP/view?usp=drive_link)"
-        }
-      ],
-      social: [
-        {
-          title: "Campaign Visual Kit & Educational Carousel",
-          year: "2026",
-          desc: "Desain sistem konten carousel edukatif 10-slide di Instagram dan LinkedIn dengan tata letak grid modular dan visual data yang mudah dipahami.",
-          client: "Tech Startup Academy",
-          role: "Content & Visual Designer",
-          tools: "Photoshop, Figma, Illustrator",
-          deliverables: "15x Carousel Sets, 30x Story Templates",
-          cover: "[https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80)"
-        }
-      ],
-      print: [
-        {
-          title: "Gelang Konser / Wristband Tiket Event",
-          year: "2026",
-          desc: "Desain gelang tiket (wristband pass) sintetis tahan air untuk akses pengunjung event, dilengkapi barcode dan penomoran seri unik.",
-          client: "Event Management",
-          role: "Graphic & Merchandise Designer",
-          tools: "Adobe Illustrator, Photoshop",
-          deliverables: "Print Ready Vector & Die-Cut Pattern",
-          cover: "[https://lh3.googleusercontent.com/d/1mhbO573y-46bp8zhB8YQL9Fk9uJ_IbF3](https://lh3.googleusercontent.com/d/1mhbO573y-46bp8zhB8YQL9Fk9uJ_IbF3)",
-          driveId: "1mhbO573y-46bp8zhB8YQL9Fk9uJ_IbF3"
-        },
-        {
-          title: "Jersey Sublimasi Custom",
-          year: "2026",
-          desc: "Perancangan pakaian jersey kustom dengan pola cetak sublimasi penuh (full sublimation print), logo sponsor, dan tipografi penomoran.",
-          client: "Sports Event & Apparel",
-          role: "Apparel Designer",
-          tools: "Adobe Illustrator, Photoshop",
-          deliverables: "Sublimation Vector Pattern & Mockup",
-          cover: "[https://lh3.googleusercontent.com/d/1fQvQSKBoxnF-1mPKE87vi97YcrpLeu0t](https://lh3.googleusercontent.com/d/1fQvQSKBoxnF-1mPKE87vi97YcrpLeu0t)",
-          driveId: "1fQvQSKBoxnF-1mPKE87vi97YcrpLeu0t"
-        },
-        {
-          title: "Karcis Parkir Official Event",
-          year: "2026",
-          desc: "Desain karcis parkir resmi acara festival dengan penomoran seri, aturan penggunaan, branding logo acara, dan perforasi instruksi.",
-          client: "Event Operations",
-          role: "Layout & Print Designer",
-          tools: "Adobe Illustrator",
-          deliverables: "Serialized Print File",
-          cover: "[https://lh3.googleusercontent.com/d/1b6Q8bbR-w7BImvmy2qWgR4t_CX1YgfE8](https://lh3.googleusercontent.com/d/1b6Q8bbR-w7BImvmy2qWgR4t_CX1YgfE8)",
-          driveId: "1b6Q8bbR-w7BImvmy2qWgR4t_CX1YgfE8"
-        },
-        {
-          title: "Gate / Entrance Structure Visual",
-          year: "2026",
-          desc: "Desain visual dan penataan identitas merek pada gerbang masuk (entrance gate) acara outdoor berskala besar dengan keterbacaan tinggi.",
-          client: "Festival & Exhibition",
-          role: "Spatial & Print Designer",
-          tools: "Illustrator, Photoshop, SketchUp",
-          deliverables: "Large Format Print Blueprint",
-          cover: "[https://lh3.googleusercontent.com/d/1reH9JxzBXNMjXFKZcTi6_WgAdlD3OiXA](https://lh3.googleusercontent.com/d/1reH9JxzBXNMjXFKZcTi6_WgAdlD3OiXA)",
-          driveId: "1reH9JxzBXNMjXFKZcTi6_WgAdlD3OiXA"
-        },
-        {
-          title: "Fascia Board & Stage Backdrop",
-          year: "2026",
-          desc: "Desain papan fascia booth dan latar panggung (backdrop stage) cetak baliho format besar dengan hirarki visual jernih.",
-          client: "Stage Production",
-          role: "Exhibition Visual Designer",
-          tools: "Adobe Illustrator, Photoshop",
-          deliverables: "100% Vector Print Artwork",
-          cover: "[https://lh3.googleusercontent.com/d/1muW_KqEFf-FkX1du2HvqI3vc73Q_gQqT](https://lh3.googleusercontent.com/d/1muW_KqEFf-FkX1du2HvqI3vc73Q_gQqT)",
-          driveId: "1muW_KqEFf-FkX1du2HvqI3vc73Q_gQqT"
-        },
-        {
-          title: "Booth Expo Pameran (Konsep 01)",
-          year: "2026",
-          desc: "Perancangan stan pameran komersial (exhibition booth) mencakup panel dinding branding, fascia board, dan meja display produk.",
-          client: "Corporate Expo Client",
-          role: "3D & Booth Graphic Designer",
-          tools: "SketchUp, Illustrator, Photoshop",
-          deliverables: "3D Render & Wall Print Files",
-          cover: "[https://lh3.googleusercontent.com/d/1Rs-GGTD3v3_003p4A4ECffTMsreIzj0r](https://lh3.googleusercontent.com/d/1Rs-GGTD3v3_003p4A4ECffTMsreIzj0r)",
-          driveId: "1Rs-GGTD3v3_003p4A4ECffTMsreIzj0r"
-        },
-        {
-          title: "Booth Expo Pameran (Konsep 02)",
-          year: "2026",
-          desc: "Pengembangan tata letak stan pameran interaktif dengan elemen grafis bersih, pencahayaan sorot, serta susunan etalase promosi.",
-          client: "Corporate Expo Client",
-          role: "3D & Booth Graphic Designer",
-          tools: "SketchUp, Illustrator, Photoshop",
-          deliverables: "3D Render & Branding Collateral",
-          cover: "[https://lh3.googleusercontent.com/d/1iAE8ZePVKJKEHp_d4FgOSVDZSQrbMPpX](https://lh3.googleusercontent.com/d/1iAE8ZePVKJKEHp_d4FgOSVDZSQrbMPpX)",
-          driveId: "1iAE8ZePVKJKEHp_d4FgOSVDZSQrbMPpX"
-        },
-        {
-          title: "Notes Book & Stationary Merchandise",
-          year: "2026",
-          desc: "Perancangan sampul buku catatan (notebook cover) eksklusif dan merchandise stasioneri untuk cenderamata resmi peserta event korporat.",
-          client: "Corporate Event",
-          role: "Stationery Designer",
-          tools: "Adobe InDesign, Illustrator",
-          deliverables: "Cover Print Layout & Specs",
-          cover: "[https://lh3.googleusercontent.com/d/10d7FaZUr9qg0IBjbqa-Vhg_MXDPtcBGk](https://lh3.googleusercontent.com/d/10d7FaZUr9qg0IBjbqa-Vhg_MXDPtcBGk)",
-          driveId: "10d7FaZUr9qg0IBjbqa-Vhg_MXDPtcBGk"
-        },
-        {
-          title: "Beach Flag / Umbul-Umbul Promosi Outdoor",
-          year: "2026",
-          desc: "Perancangan bendera promosi vertikal luar ruang (beach flag / feather banner) dengan kontras warna tinggi agar mudah terlihat dari jauh.",
-          client: "Outdoor Campaign",
-          role: "Outdoor Graphic Designer",
-          tools: "Adobe Illustrator",
-          deliverables: "Vector Flag Print Template",
-          cover: "[https://lh3.googleusercontent.com/d/1Eb_zQtYNZxJNSdu4kCEUu5arnp4N_ana](https://lh3.googleusercontent.com/d/1Eb_zQtYNZxJNSdu4kCEUu5arnp4N_ana)",
-          driveId: "1Eb_zQtYNZxJNSdu4kCEUu5arnp4N_ana"
-        }
-      ],
-      uiux: [
-        {
-          title: "Creative Studio Web Portfolio Interface",
-          year: "2026",
-          desc: "Perancangan antarmuka situs web interaktif modern bertema dark minimalist dengan tipografi tegas dan kartu proyek 3D.",
-          client: "Personal Showcase",
-          role: "UI/UX Designer & Developer",
-          tools: "Figma, Tailwind CSS, JS",
-          deliverables: "Figma Prototype, Production Code",
-          cover: "[https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80)"
-        }
-      ],
-      creative: [
-        {
-          title: "Interactive WebAR 3D Experience (AR-BETA V01)",
-          year: "2026",
-          desc: "Implementasi teknologi Augmented Reality (WebAR) interaktif berbasis web, memungkinkan pengguna berinteraksi langsung dengan objek 3D real-time melalui kamera browser.",
-          client: "WebAR Prototype",
-          role: "3D & WebAR Visual Developer",
-          tools: "WebAR, Three.js, JavaScript",
-          deliverables: "Live WebAR Application",
-          liveUrl: "[https://feby-akliji23.github.io/AR-BETA_V01/](https://feby-akliji23.github.io/AR-BETA_V01/)",
-          cover: "[https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80)"
-        }
-      ]
-    };
-
-    /* 3. ROUTER NAVIGASI HALAMAN & RENDER GRID KARYA */
-    function navigateToCategoryPage(categoryKey) {
-      window.location.hash = `#category-${categoryKey}`;
-    }
-
-    function goToHomePage() {
-      window.location.hash = '#home';
-    }
-
-    function goToHomeSection(sectionId) {
-      if (document.getElementById('homeView').classList.contains('hidden')) {
-        showHomeView();
-      }
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 50);
-    }
-
-    function showHomeView() {
-      document.getElementById('homeView').classList.remove('hidden');
-      document.getElementById('categoryPageView').classList.add('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function showCategoryView(catKey) {
+    function renderCategoryPage(catKey) {
       const meta = categoriesMeta[catKey] || categoriesMeta.branding;
       const projects = projectsDatabase[catKey] || [];
 
@@ -1804,17 +830,17 @@ Berikut adalah kode lengkap `index.html` yang sudah diperbaiki secara total:
         activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm";
       }
 
-      /* RENDER GRID KARTU KARYA */
+      /* RENDER GRID KARTU KARYA (KLIK -> KELUAR POP-UP) */
       const grid = document.getElementById('categoryProjectsGrid');
-      grid.innerHTML = projects.map((p, idx) => `
-        <div onclick="openProjectDetailModal('${catKey}', ${idx})" class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300 cursor-pointer group">
+      grid.innerHTML = projects.map((p, index) => `
+        <div onclick="openProjectDetailModal('${catKey}', ${index})" class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300 cursor-pointer group">
           <div>
             <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-4">
-              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='[https://drive.google.com/uc?export=view&id=$](https://drive.google.com/uc?export=view&id=$){p.driveId || ''}';">
+              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                <span class="px-4 py-2 rounded-full bg-white text-neutral-900 text-[11px] font-bold tracking-wider uppercase shadow-xl flex items-center gap-1.5">
+                <span class="px-4 py-2 rounded-full bg-white text-neutral-900 text-[11px] font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-1.5">
                   <i class="fa-solid fa-expand text-[10px]"></i>
-                  <span>Buka Pop-up Karya</span>
+                  <span>Lihat Detail Karya</span>
                 </span>
               </div>
             </div>
@@ -1838,72 +864,69 @@ Berikut adalah kode lengkap `index.html` yang sudah diperbaiki secara total:
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* 4. LOGIKA POP-UP MODAL DETAIL KARYA SPESIFIK */
+    /* 4. POP-UP MODAL DETAIL PROYEK INDIVIDUAL */
     function openProjectDetailModal(catKey, index) {
-      const p = projectsDatabase[catKey]?.[index];
+      const p = projectsDatabase[catKey][index];
       if (!p) return;
 
       const modalContent = document.getElementById('projectDetailModalContent');
-      
       modalContent.innerHTML = `
-        <div class="space-y-6">
-          ${p.liveUrl ? `
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900">
-              <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking"></iframe>
-            </div>
-          ` : `
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 flex items-center justify-center">
-              <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='[https://drive.google.com/uc?export=view&id=$](https://drive.google.com/uc?export=view&id=$){p.driveId || ''}';">
-            </div>
-          `}
+        ${p.liveUrl ? `
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900">
+            <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking"></iframe>
+          </div>
+        ` : `
+          <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 flex items-center justify-center">
+            <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
+          </div>
+        `}
 
+        <div>
+          <div class="flex items-center gap-3 text-xs mb-2">
+            <span class="font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
+            <span class="font-mono text-neutral-400">${p.year}</span>
+          </div>
+          
+          <h2 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">${p.title}</h2>
+          <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mt-3 leading-relaxed">${p.desc}</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-lightBg dark:bg-darkBg border border-lightBorder dark:border-darkBorder text-xs">
           <div>
-            <div class="flex items-center gap-3 text-xs mb-2">
-              <span class="font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
-              <span class="font-mono text-neutral-400">${p.year}</span>
-            </div>
-            
-            <h2 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">${p.title}</h2>
-            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mt-3 leading-relaxed">${p.desc}</p>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Klien</span>
+            <span class="font-semibold text-neutral-900 dark:text-white">${p.client}</span>
           </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-lightBg dark:bg-darkBg border border-lightBorder dark:border-darkBorder text-xs">
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Klien</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.client}</span>
-            </div>
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Software</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.tools}</span>
-            </div>
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Deliverables</span>
-              <span class="font-semibold text-neutral-900 dark:text-white">${p.deliverables}</span>
-            </div>
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Software / Tools</span>
+            <span class="font-semibold text-neutral-900 dark:text-white">${p.tools}</span>
           </div>
-
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            ${p.videoDriveUrl ? `
-              <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Tonton Video di Google Drive</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : p.liveUrl ? `
-              <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Buka WebAR Fullscreen</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : p.driveId ? `
-              <a href="[https://drive.google.com/file/d/$](https://drive.google.com/file/d/$){p.driveId}/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
-                <span>Buka Gambar HD di Google Drive</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            ` : ''}
-
-            <button onclick="closeProjectDetailModal()" class="px-6 py-3 rounded-full border border-lightBorder dark:border-darkBorder text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 dark:hover:bg-darkCard transition">
-              Tutup Pop-Up
-            </button>
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Deliverables</span>
+            <span class="font-semibold text-neutral-900 dark:text-white">${p.deliverables}</span>
           </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          ${p.videoDriveUrl ? `
+            <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+              <span>Tonton Video di Google Drive</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          ` : p.liveUrl ? `
+            <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+              <span>Buka WebAR Live Fullscreen</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          ` : p.driveId ? `
+            <a href="https://drive.google.com/file/d/${p.driveId}/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+              <span>Buka Berkas HD di Google Drive</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          ` : ''}
+
+          <button onclick="closeProjectDetailModal()" class="px-6 py-3 rounded-full border border-lightBorder dark:border-darkBorder text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 dark:hover:bg-darkCard transition">
+            Tutup Pop-Up
+          </button>
         </div>
       `;
 
@@ -1926,19 +949,20 @@ Berikut adalah kode lengkap `index.html` yang sudah diperbaiki secara total:
       if (e.target === document.getElementById('projectDetailModal')) closeProjectDetailModal();
     });
 
+    /* 5. ROUTING CONTROLLER & THEME TOGGLE */
     function handleRouting() {
       const hash = window.location.hash;
       if (hash.startsWith('#category-')) {
         const catKey = hash.replace('#category-', '');
-        showCategoryView(catKey);
+        renderCategoryPage(catKey);
       } else {
         showHomeView();
       }
     }
+
     window.addEventListener('hashchange', handleRouting);
     window.addEventListener('DOMContentLoaded', handleRouting);
 
-    /* 5. THEME TOGGLE */
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
     const html = document.documentElement;
