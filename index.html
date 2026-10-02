@@ -16,14 +16,19 @@
             sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
           },
           colors: {
-            darkBg: '#0e0f12',
-            darkSurface: '#15161b',
-            darkCard: '#1a1b22',
-            darkBorder: '#272832',
-            lightBg: '#f3f4f6',
-            lightSurface: '#ffffff',
-            lightCard: '#ffffff',
-            lightBorder: '#e5e7eb',
+            brandBlue: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a',
+            }
           }
         }
       }
@@ -48,15 +53,16 @@
       will-change: transform;
     }
 
+    /* Tipografi Outline Hero Section dengan Sentuhan Biru */
     .hero-outline-text {
-      -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.48);
-      color: rgba(255, 255, 255, 0.04);
+      -webkit-text-stroke: 2.5px rgba(59, 130, 246, 0.35);
+      color: rgba(59, 130, 246, 0.03);
       user-select: none;
       letter-spacing: -0.03em;
     }
     html:not(.dark) .hero-outline-text {
-      -webkit-text-stroke: 2.5px rgba(15, 23, 42, 0.55);
-      color: rgba(15, 23, 42, 0.04);
+      -webkit-text-stroke: 2.5px rgba(37, 99, 235, 0.25);
+      color: rgba(37, 99, 235, 0.03);
     }
 
     .vertical-lr { writing-mode: vertical-lr; }
@@ -91,36 +97,36 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-lightBg text-neutral-800 dark:bg-darkBg dark:text-neutral-200 transition-colors duration-300 font-sans selection:bg-neutral-800 selection:text-white dark:selection:bg-white dark:selection:text-black">
+<body class="bg-gradient-to-br from-white via-blue-50/60 to-sky-100/70 dark:from-black dark:via-slate-950 dark:to-blue-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300 font-sans selection:bg-blue-600 selection:text-white">
 
   <!-- ================= NAVBAR ================= -->
-  <header class="fixed top-0 left-0 right-0 z-40 border-b border-lightBorder/80 dark:border-darkBorder/80 bg-lightBg/80 dark:bg-darkBg/80 backdrop-blur-md transition-colors duration-300">
+  <header class="fixed top-0 left-0 right-0 z-40 border-b border-blue-100/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       
       <a href="#home" onclick="goToHomePage()" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 flex items-center justify-center font-black text-sm tracking-tighter">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-md shadow-blue-500/20">
           A
         </div>
-        <span class="font-extrabold text-sm tracking-wider uppercase text-neutral-900 dark:text-white group-hover:opacity-80 transition">
+        <span class="font-extrabold text-sm tracking-wider uppercase text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
           ARVIO
         </span>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-        <a href="#home" onclick="goToHomePage()" class="hover:text-black dark:hover:text-white transition">Home</a>
-        <a href="#work" onclick="goToHomeSection('work')" class="hover:text-black dark:hover:text-white transition">Work</a>
-        <a href="#what-i-can-do" onclick="goToHomeSection('what-i-can-do')" class="hover:text-black dark:hover:text-white transition">What I Can Do</a>
-        <a href="#about" onclick="goToHomeSection('about')" class="hover:text-black dark:hover:text-white transition">About</a>
-        <a href="#awards" onclick="goToHomeSection('awards')" class="hover:text-black dark:hover:text-white transition">Awards</a>
-        <a href="#trainings" onclick="goToHomeSection('trainings')" class="hover:text-black dark:hover:text-white transition">Trainings</a>
+      <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400">
+        <a href="#home" onclick="goToHomePage()" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+        <a href="#work" onclick="goToHomeSection('work')" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Work</a>
+        <a href="#what-i-can-do" onclick="goToHomeSection('what-i-can-do')" class="hover:text-blue-600 dark:hover:text-blue-400 transition">What I Can Do</a>
+        <a href="#about" onclick="goToHomeSection('about')" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+        <a href="#awards" onclick="goToHomeSection('awards')" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Awards</a>
+        <a href="#trainings" onclick="goToHomeSection('trainings')" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Trainings</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full border border-lightBorder dark:border-darkBorder flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-darkCard transition">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full border border-blue-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex items-center justify-center text-slate-600 dark:text-blue-300 hover:border-blue-500 transition shadow-sm">
           <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
         </button>
 
-        <a href="#contact" onclick="goToHomeSection('contact')" class="px-5 py-2 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wide hover:opacity-90 transition">
+        <a href="#contact" onclick="goToHomeSection('contact')" class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold tracking-wide transition shadow-lg shadow-blue-500/25">
           Hire Me
         </a>
       </div>
@@ -149,17 +155,17 @@
         <img 
           src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" 
           alt="Arvio Andriano" 
-          class="w-auto h-[82vh] md:h-[88vh] max-h-[92vh] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.75)]"
+          class="w-auto h-[82vh] md:h-[88vh] max-h-[92vh] object-contain drop-shadow-[0_25px_60px_rgba(30,58,138,0.35)] dark:drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]"
           onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3';"
         />
       </div>
 
-      <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-lightBg dark:from-darkBg to-transparent z-[15] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-blue-50/80 dark:from-black to-transparent z-[15] pointer-events-none"></div>
 
       <div class="absolute right-6 bottom-10 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
-        <span class="vertical-lr text-[10px] font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">SCROLL DOWN</span>
-        <div class="w-[1px] h-10 bg-neutral-300 dark:bg-neutral-700 relative overflow-hidden">
-          <div class="w-full h-1/2 bg-neutral-800 dark:bg-neutral-200 animate-pulse"></div>
+        <span class="vertical-lr text-[10px] font-bold uppercase tracking-widest text-blue-600/70 dark:text-blue-400/60">SCROLL DOWN</span>
+        <div class="w-[1px] h-10 bg-blue-200 dark:bg-slate-800 relative overflow-hidden">
+          <div class="w-full h-1/2 bg-blue-600 dark:bg-blue-400 animate-pulse"></div>
         </div>
       </div>
     </section>
@@ -168,82 +174,82 @@
     <section id="work" class="py-24 max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
-          <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
+          <span class="text-[11px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400">
             SELECTED WORK &middot; 6 CATEGORIES
           </span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">
             Work Gallery
           </h2>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-xl">
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             Pilih salah satu kategori di bawah atau klik kartu untuk **pindah ke halaman proyek kategori**.
           </p>
         </div>
       </div>
 
-      <!-- TAB KATEGORI (PINDAH PAGE) -->
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 border-b border-lightBorder/60 dark:border-darkBorder/60">
-        <button onclick="navigateToCategoryPage('branding')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+      <!-- TAB KATEGORI -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 border-b border-blue-100 dark:border-slate-800">
+        <button onclick="navigateToCategoryPage('branding')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>Brand Identity</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
-        <button onclick="navigateToCategoryPage('video')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="navigateToCategoryPage('video')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>Video & Motion</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
-        <button onclick="navigateToCategoryPage('social')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="navigateToCategoryPage('social')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>Social Media Kit</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
-        <button onclick="navigateToCategoryPage('print')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="navigateToCategoryPage('print')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>Print & Packaging</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
-        <button onclick="navigateToCategoryPage('uiux')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="navigateToCategoryPage('uiux')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>UI/UX & Web</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
-        <button onclick="navigateToCategoryPage('creative')" class="shrink-0 px-4 py-2 rounded-full border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard text-xs font-semibold uppercase tracking-wider hover:border-neutral-500 transition flex items-center gap-2">
+        <button onclick="navigateToCategoryPage('creative')" class="shrink-0 px-4 py-2 rounded-full border border-blue-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-xs font-semibold uppercase tracking-wider hover:border-blue-500 dark:hover:border-blue-400 transition flex items-center gap-2 shadow-sm">
           <span>Creative & 3D</span>
-          <i class="fa-solid fa-arrow-right text-[9px] text-neutral-400"></i>
+          <i class="fa-solid fa-arrow-right text-[9px] text-blue-500"></i>
         </button>
       </div>
 
       <!-- 3D CAROUSEL SLIDER -->
       <div class="carousel-perspective relative w-full flex flex-col items-center select-none">
-        <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
+        <button onclick="prevSlide()" aria-label="Slide Kiri" class="absolute left-2 sm:left-4 md:left-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-blue-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-left text-sm"></i>
         </button>
 
-        <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-lightBorder/80 dark:border-darkBorder/80 bg-lightSurface/90 dark:bg-darkSurface/90 backdrop-blur flex items-center justify-center text-neutral-700 dark:text-neutral-200 shadow-xl hover:scale-110 active:scale-95 transition">
+        <button onclick="nextSlide()" aria-label="Slide Kanan" class="absolute right-2 sm:right-4 md:right-8 top-1/3 -translate-y-1/2 z-40 w-11 h-11 rounded-full border border-blue-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-xl hover:scale-110 active:scale-95 transition">
           <i class="fa-solid fa-chevron-right text-sm"></i>
         </button>
 
         <div id="carouselDragArea" class="drag-area relative w-full max-w-3xl h-64 md:h-96 flex items-center justify-center">
-          <div id="cCardLeft" onclick="prevSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
+          <div id="cCardLeft" onclick="prevSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-blue-200/80 dark:border-slate-800 shadow-2xl cursor-pointer bg-slate-900">
             <img id="cImgLeft" src="" alt="Kategori Sebelumnya" class="w-full h-full object-cover">
           </div>
 
-          <div id="cCardCenter" onclick="openCurrentCategoryPage()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard group">
+          <div id="cCardCenter" onclick="openCurrentCategoryPage()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border-2 border-blue-500 dark:border-blue-400 shadow-2xl shadow-blue-500/20 cursor-pointer bg-slate-900 group">
             <img id="cImgCenter" src="" alt="Kategori Aktif" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-              <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
+            <div class="absolute inset-0 bg-blue-950/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span id="cCenterActionHint" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-2">
                 <span>PINDAH KE HALAMAN KATEGORI</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </span>
             </div>
           </div>
 
-          <div id="cCardRight" onclick="nextSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder shadow-2xl cursor-pointer bg-darkCard">
+          <div id="cCardRight" onclick="nextSlide()" class="carousel-card absolute w-[78%] md:w-[70%] aspect-video rounded-2xl overflow-hidden border border-blue-200/80 dark:border-slate-800 shadow-2xl cursor-pointer bg-slate-900">
             <img id="cImgRight" src="" alt="Kategori Berikutnya" class="w-full h-full object-cover">
           </div>
         </div>
 
         <div class="text-center mt-8 max-w-xl mx-auto px-4">
-          <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white transition-all tracking-tight">Brand Identity</h3>
-          <p id="cDesc" class="text-neutral-500 dark:text-neutral-400 text-sm mt-2.5 leading-relaxed">Perancangan sistem identitas visual korporat lengkap...</p>
+          <h3 id="cTitle" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white transition-all tracking-tight">Brand Identity</h3>
+          <p id="cDesc" class="text-slate-500 dark:text-slate-400 text-sm mt-2.5 leading-relaxed">Perancangan sistem identitas visual korporat lengkap...</p>
 
           <div class="mt-5">
-            <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-900 dark:border-neutral-700 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold tracking-wider uppercase hover:opacity-90 transition">
+            <button id="cActionBtn" onclick="openCurrentCategoryPage()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold tracking-wider uppercase transition shadow-lg shadow-blue-500/20">
               <span>LIHAT SEMUA PROYEK KATEGORI INI &rarr;</span>
             </button>
           </div>
@@ -254,81 +260,81 @@
     </section>
 
     <!-- SECTION 2: WHAT I CAN DO -->
-    <section id="what-i-can-do" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
+    <section id="what-i-can-do" class="py-24 max-w-6xl mx-auto px-6 border-t border-blue-100 dark:border-slate-800">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-6 flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">MY CAPABILITIES & ARSENAL</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">What I Can Do</h2>
-            <p class="text-neutral-500 dark:text-neutral-400 text-sm mt-3 leading-relaxed">
+            <span class="text-[11px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400">MY CAPABILITIES & ARSENAL</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">What I Can Do</h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed">
               Menggabungkan keterampilan tata visual komunikasi, penyuntingan video dinamis, antarmuka digital, dan teknologi spasial menggunakan standar perangkat lunak industri.
             </p>
           </div>
 
           <div class="grid grid-cols-5 gap-3 sm:gap-3.5 mt-8">
-            <div title="Adobe Illustrator" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Adobe Illustrator" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/Illustrator.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg';" alt="Illustrator" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Illustrator</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Illustrator</span>
             </div>
-            <div title="Adobe Photoshop" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Adobe Photoshop" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/photoshop.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg';" alt="Photoshop" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Photoshop</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Photoshop</span>
             </div>
-            <div title="Adobe Premiere Pro" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Adobe Premiere Pro" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/premier.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-plain.svg';" alt="Premiere" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Premiere</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Premiere</span>
             </div>
-            <div title="Adobe After Effects" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Adobe After Effects" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/aftereffects.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-plain.svg';" alt="After Effects" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">After Effects</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">After Effects</span>
             </div>
-            <div title="Figma UI/UX" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Figma UI/UX" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/figma.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg';" alt="Figma" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Figma</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Figma</span>
             </div>
-            <div title="Canva" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Canva" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/canva.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg';" alt="Canva" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Canva</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Canva</span>
             </div>
-            <div title="CapCut Video Editor" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="CapCut Video Editor" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/capcut.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Capcut-logo.svg/512px-Capcut-logo.svg.png';" alt="CapCut" class="w-10 h-10 object-contain rounded-lg"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">CapCut</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">CapCut</span>
             </div>
-            <div title="Blender 3D" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Blender 3D" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/blender.png" onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg';" alt="Blender 3D" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">Blender</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">Blender</span>
             </div>
-            <div title="Trimble SketchUp" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="Trimble SketchUp" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/sketchup.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SketchUp_Logo.svg/512px-SketchUp_Logo.svg.png';" alt="SketchUp" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">SketchUp</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">SketchUp</span>
             </div>
-            <div title="ChatGPT & AI Workflow" class="group aspect-square rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard flex flex-col items-center justify-center p-2 hover:scale-105 transition shadow-sm">
+            <div title="ChatGPT & AI Workflow" class="group aspect-square rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex flex-col items-center justify-center p-2 hover:scale-105 hover:border-blue-500 transition shadow-sm">
               <img src="ICONS/chatgpt.png" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png';" alt="ChatGPT" class="w-10 h-10 object-contain"/>
-              <span class="text-[9px] font-bold uppercase tracking-wider text-neutral-400 mt-1 truncate">ChatGPT</span>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1 truncate">ChatGPT</span>
             </div>
           </div>
         </div>
 
         <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-7 flex flex-col justify-between shadow-sm">
+          <div class="rounded-3xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-7 flex flex-col justify-between shadow-sm">
             <div>
               <div class="flex items-center justify-between">
-                <span class="text-4xl font-extrabold text-neutral-300 dark:text-neutral-700">01</span>
-                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-neutral-100 dark:bg-darkBg text-neutral-500 dark:text-neutral-400">GRAPHIC & BRANDING</span>
+                <span class="text-4xl font-extrabold text-blue-200 dark:text-slate-800">01</span>
+                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400">GRAPHIC & BRANDING</span>
               </div>
-              <p class="text-xs text-neutral-600 dark:text-neutral-300 mt-6 leading-relaxed">
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-6 leading-relaxed">
                 Membangun identitas visual terpadu mulai dari logo, buku panduan grafis (*brand guidelines*), materi pameran, hingga kemasan dan *vehicle wrapping*.
               </p>
             </div>
           </div>
 
-          <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-7 flex flex-col justify-between shadow-sm">
+          <div class="rounded-3xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-7 flex flex-col justify-between shadow-sm">
             <div>
               <div class="flex items-center justify-between">
-                <span class="text-4xl font-extrabold text-neutral-300 dark:text-neutral-700">02</span>
-                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-neutral-100 dark:bg-darkBg text-neutral-500 dark:text-neutral-400">VIDEO & MEDIA</span>
+                <span class="text-4xl font-extrabold text-blue-200 dark:text-slate-800">02</span>
+                <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400">VIDEO & MEDIA</span>
               </div>
-              <p class="text-xs text-neutral-600 dark:text-neutral-300 mt-6 leading-relaxed">
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-6 leading-relaxed">
                 Mengeksekusi produksi video komprehensif mulai dari penyusunan alur cerita visual, pengoperasian kamera, *color grading*, hingga efek gerak dinamis.
               </p>
             </div>
@@ -338,38 +344,38 @@
     </section>
 
     <!-- SECTION 3: ABOUT ME -->
-    <section id="about" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
+    <section id="about" class="py-24 max-w-6xl mx-auto px-6 border-t border-blue-100 dark:border-slate-800">
       <div class="mb-10">
-        <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">ABOUT ME</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">Visual Storyteller. Creative Designer.</h2>
+        <span class="text-[11px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400">ABOUT ME</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Visual Storyteller. Creative Designer.</h2>
       </div>
 
-      <div class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-8 mb-6 shadow-sm">
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-6 pb-6 border-b border-lightBorder dark:border-darkBorder">
-          <div class="w-16 h-16 rounded-full overflow-hidden border border-neutral-300 dark:border-neutral-700 shrink-0">
+      <div class="rounded-3xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-8 mb-6 shadow-sm">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6 pb-6 border-b border-blue-100 dark:border-slate-800">
+          <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500/50 shrink-0">
             <img src="https://lh3.googleusercontent.com/d/1_65GBYvPXL7WyKqTGRdJb3t9on01J1h3" alt="Arvio Andriano" class="w-full h-full object-cover">
           </div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-neutral-900 dark:text-white uppercase tracking-tight">ARVIO ANDRIANO</h3>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-0.5">Lulusan Desain Komunikasi Visual &middot; Certified Intermediate Graphic Designer</p>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-tight">ARVIO ANDRIANO</h3>
+            <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Lulusan Desain Komunikasi Visual &middot; Certified Intermediate Graphic Designer</p>
           </div>
         </div>
-        <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mt-6">
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-6">
           Fokus pada eksplorasi komunikasi visual, produksi film pendek promosi, identitas merek, dan perancangan media digital interaktif.
         </p>
       </div>
     </section>
 
     <!-- SECTION 4: CONTACT & FOOTER -->
-    <section id="contact" class="py-24 max-w-6xl mx-auto px-6 border-t border-lightBorder dark:border-darkBorder">
+    <section id="contact" class="py-24 max-w-6xl mx-auto px-6 border-t border-blue-100 dark:border-slate-800">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div class="lg:col-span-6 flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-bold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">GET IN TOUCH</span>
-            <h2 class="text-5xl md:text-6xl font-black text-neutral-900 dark:text-white tracking-tight uppercase mt-2">LET'S WORK<br>TOGETHER</h2>
+            <span class="text-[11px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400">GET IN TOUCH</span>
+            <h2 class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight uppercase mt-2">LET'S WORK<br>TOGETHER</h2>
           </div>
           <div class="mt-10">
-            <a href="CV ARVIO ANDRIANO.pdf" download class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition">
+            <a href="CV ARVIO ANDRIANO.pdf" download class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-blue-500/25">
               <span>DOWNLOAD RESUME</span>
               <i class="fa-solid fa-arrow-down text-xs"></i>
             </a>
@@ -377,13 +383,13 @@
         </div>
 
         <div class="lg:col-span-6 space-y-4">
-          <div onclick="copyText('arvioandriano@gmail.com', 'Email disalin!')" class="rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex items-center justify-between cursor-pointer hover:border-neutral-400 transition">
+          <div onclick="copyText('arvioandriano@gmail.com', 'Email disalin!')" class="rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 flex items-center justify-between cursor-pointer hover:border-blue-500 transition shadow-sm">
             <span class="text-sm font-semibold">arvioandriano@gmail.com</span>
-            <span class="text-xs font-mono text-neutral-400">EMAIL &nearr;</span>
+            <span class="text-xs font-mono text-blue-600 dark:text-blue-400">EMAIL &nearr;</span>
           </div>
-          <a href="https://wa.me/6289668184078" target="_blank" class="rounded-2xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex items-center justify-between hover:border-neutral-400 transition">
+          <a href="https://wa.me/6289668184078" target="_blank" class="rounded-2xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 flex items-center justify-between hover:border-blue-500 transition shadow-sm">
             <span class="text-sm font-semibold">+62 896-6818-4078</span>
-            <span class="text-xs font-mono text-neutral-400">WHATSAPP &nearr;</span>
+            <span class="text-xs font-mono text-blue-600 dark:text-blue-400">WHATSAPP &nearr;</span>
           </a>
         </div>
       </div>
@@ -395,52 +401,52 @@
   <!-- ======================================================== -->
   <main id="categoryPageView" class="hidden min-h-screen pt-24 pb-24 max-w-6xl mx-auto px-6 page-fade">
     
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-lightBorder dark:border-darkBorder">
-      <button onclick="goToHomePage()" class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition group">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-blue-100 dark:border-slate-800">
+      <button onclick="goToHomePage()" class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition group">
         <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
         <span>KEMBALI KE BERANDA</span>
       </button>
 
-      <div class="flex items-center gap-2 text-xs font-medium text-neutral-400">
+      <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
         <span onclick="goToHomePage()" class="cursor-pointer hover:underline">Beranda</span>
         <span>/</span>
-        <span class="text-neutral-900 dark:text-white font-bold" id="pageBreadcrumbCategory">Brand Identity</span>
+        <span class="text-slate-900 dark:text-white font-bold" id="pageBreadcrumbCategory">Brand Identity</span>
       </div>
     </div>
 
     <div class="py-10">
-      <span id="pageCategoryTag" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">
+      <span id="pageCategoryTag" class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
         KATEGORI PORTOFOLIO
       </span>
-      <h1 id="pageCategoryTitle" class="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 dark:text-white mt-3 uppercase tracking-tight">
+      <h1 id="pageCategoryTitle" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mt-3 uppercase tracking-tight">
         Brand Identity
       </h1>
-      <p id="pageCategoryDesc" class="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl leading-relaxed">
+      <p id="pageCategoryDesc" class="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-3 max-w-2xl leading-relaxed">
         Deskripsi kategori...
       </p>
 
       <!-- Navigasi Pindah Kategori Cepat -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-8">
-        <button onclick="navigateToCategoryPage('branding')" id="cnav-branding" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Brand Identity</button>
-        <button onclick="navigateToCategoryPage('video')" id="cnav-video" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Video & Motion</button>
-        <button onclick="navigateToCategoryPage('social')" id="cnav-social" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Social Media Kit</button>
-        <button onclick="navigateToCategoryPage('print')" id="cnav-print" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Print & Packaging</button>
-        <button onclick="navigateToCategoryPage('uiux')" id="cnav-uiux" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">UI/UX & Web</button>
-        <button onclick="navigateToCategoryPage('creative')" id="cnav-creative" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder">Creative & 3D</button>
+        <button onclick="navigateToCategoryPage('branding')" id="cnav-branding" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">Brand Identity</button>
+        <button onclick="navigateToCategoryPage('video')" id="cnav-video" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">Video & Motion</button>
+        <button onclick="navigateToCategoryPage('social')" id="cnav-social" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">Social Media Kit</button>
+        <button onclick="navigateToCategoryPage('print')" id="cnav-print" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">Print & Packaging</button>
+        <button onclick="navigateToCategoryPage('uiux')" id="cnav-uiux" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">UI/UX & Web</button>
+        <button onclick="navigateToCategoryPage('creative')" id="cnav-creative" class="cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800">Creative & 3D</button>
       </div>
     </div>
 
-    <!-- Grid Portofolio Kategori (Setiap Item Diklik -> Buka Pop-up) -->
+    <!-- Grid Portofolio Kategori -->
     <div id="categoryProjectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4"></div>
 
   </main>
 
   <!-- ================= POP-UP MODAL: DETAIL PROYEK INDIVIDUAL ================= -->
-  <div id="projectDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
-    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-6 sm:p-8 shadow-2xl no-scrollbar flex flex-col justify-between">
+  <div id="projectDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-blue-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-2xl no-scrollbar flex flex-col justify-between">
       
       <!-- Tombol Close Modal -->
-      <button onclick="closeProjectDetailModal()" aria-label="Tutup Pop-up" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-neutral-200 dark:bg-darkBg text-neutral-600 dark:text-neutral-300 flex items-center justify-center text-sm hover:scale-105 transition z-20">
+      <button onclick="closeProjectDetailModal()" aria-label="Tutup Pop-up" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm hover:scale-105 transition z-20">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
@@ -450,7 +456,7 @@
   </div>
 
   <!-- Toast Notifikasi -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl border border-darkBorder bg-darkCard text-white text-xs font-medium shadow-2xl opacity-0 translate-y-3 pointer-events-none transition-all duration-300">
+  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl border border-blue-200 dark:border-slate-800 bg-slate-900 text-white text-xs font-medium shadow-2xl opacity-0 translate-y-3 pointer-events-none transition-all duration-300">
     Pemberitahuan
   </div>
 
@@ -536,7 +542,7 @@
 
       const dotsContainer = document.getElementById('carouselDotsContainer');
       dotsContainer.innerHTML = homeSlidesData.map((_, idx) => `
-        <button onclick="currentSlide=${idx};updateCarousel();" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-neutral-900 dark:bg-white' : 'w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600'} transition-all"></button>
+        <button onclick="currentSlide=${idx};updateCarousel();" class="${idx === currentSlide ? 'w-6 h-2 rounded-full bg-blue-600 dark:bg-blue-400' : 'w-2 h-2 rounded-full bg-blue-200 dark:bg-slate-700'} transition-all"></button>
       `).join('');
     }
 
@@ -823,22 +829,22 @@
       document.getElementById('pageCategoryDesc').textContent = meta.desc;
 
       document.querySelectorAll('.cnav-btn').forEach(b => {
-        b.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-lightBorder dark:border-darkBorder text-neutral-400 hover:text-black dark:hover:text-white";
+        b.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition border border-blue-100 dark:border-slate-800 text-slate-400 hover:text-blue-600 dark:hover:text-white";
       });
       const activeBtn = document.getElementById(`cnav-${catKey}`);
       if (activeBtn) {
-        activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm";
+        activeBtn.className = "cnav-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20";
       }
 
-      /* RENDER GRID KARTU KARYA (KLIK -> KELUAR POP-UP) */
+      /* RENDER GRID KARTU KARYA */
       const grid = document.getElementById('categoryProjectsGrid');
       grid.innerHTML = projects.map((p, index) => `
-        <div onclick="openProjectDetailModal('${catKey}', ${index})" class="rounded-3xl border border-lightBorder dark:border-darkBorder bg-lightSurface dark:bg-darkCard p-5 flex flex-col justify-between shadow-sm hover:border-neutral-500 transition duration-300 cursor-pointer group">
+        <div onclick="openProjectDetailModal('${catKey}', ${index})" class="rounded-3xl border border-blue-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-5 flex flex-col justify-between shadow-sm hover:border-blue-500 dark:hover:border-blue-400 transition duration-300 cursor-pointer group">
           <div>
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 mb-4">
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-blue-100 dark:border-slate-800 bg-slate-900 mb-4">
               <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                <span class="px-4 py-2 rounded-full bg-white text-neutral-900 text-[11px] font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-1.5">
+              <div class="absolute inset-0 bg-blue-950/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[11px] font-extrabold tracking-wider uppercase shadow-xl flex items-center gap-1.5">
                   <i class="fa-solid fa-expand text-[10px]"></i>
                   <span>Lihat Detail Karya</span>
                 </span>
@@ -846,17 +852,17 @@
             </div>
 
             <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
-              <span class="font-mono text-neutral-400 text-[11px]">${p.year}</span>
+              <span class="font-bold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400">${p.role}</span>
+              <span class="font-mono text-slate-400 text-[11px]">${p.year}</span>
             </div>
             
-            <h3 class="text-base font-bold text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition line-clamp-1">${p.title}</h3>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1.5 line-clamp-2 leading-relaxed">${p.desc}</p>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition line-clamp-1">${p.title}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">${p.desc}</p>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-lightBorder/60 dark:border-darkBorder/60 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-400">Klien: <strong class="text-neutral-700 dark:text-neutral-300">${p.client}</strong></span>
-            <span class="font-bold text-neutral-900 dark:text-white group-hover:translate-x-1 transition">&rarr;</span>
+          <div class="mt-4 pt-3 border-t border-blue-100/60 dark:border-slate-800/60 flex items-center justify-between text-[11px]">
+            <span class="text-slate-400">Klien: <strong class="text-slate-700 dark:text-slate-300">${p.client}</strong></span>
+            <span class="font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition">&rarr;</span>
           </div>
         </div>
       `).join('');
@@ -872,59 +878,59 @@
       const modalContent = document.getElementById('projectDetailModalContent');
       modalContent.innerHTML = `
         ${p.liveUrl ? `
-          <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900">
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-blue-100 dark:border-slate-800 bg-slate-900">
             <iframe src="${p.liveUrl}" class="w-full h-full border-0" allow="camera; gyroscope; accelerometer; xr-spatial-tracking"></iframe>
           </div>
         ` : `
-          <div class="w-full aspect-video rounded-2xl overflow-hidden border border-lightBorder dark:border-darkBorder bg-neutral-900 flex items-center justify-center">
+          <div class="w-full aspect-video rounded-2xl overflow-hidden border border-blue-100 dark:border-slate-800 bg-slate-900 flex items-center justify-center">
             <img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=${p.driveId || ''}';">
           </div>
         `}
 
         <div>
           <div class="flex items-center gap-3 text-xs mb-2">
-            <span class="font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full bg-neutral-200 dark:bg-darkBorder text-neutral-700 dark:text-neutral-300">${p.role}</span>
-            <span class="font-mono text-neutral-400">${p.year}</span>
+            <span class="font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400">${p.role}</span>
+            <span class="font-mono text-slate-400">${p.year}</span>
           </div>
           
-          <h2 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">${p.title}</h2>
-          <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mt-3 leading-relaxed">${p.desc}</p>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">${p.title}</h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">${p.desc}</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-lightBg dark:bg-darkBg border border-lightBorder dark:border-darkBorder text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-blue-50/50 dark:bg-slate-950/50 border border-blue-100 dark:border-slate-800 text-xs">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Klien</span>
-            <span class="font-semibold text-neutral-900 dark:text-white">${p.client}</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600/70 dark:text-blue-400/70 block mb-1">Klien</span>
+            <span class="font-semibold text-slate-900 dark:text-white">${p.client}</span>
           </div>
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Software / Tools</span>
-            <span class="font-semibold text-neutral-900 dark:text-white">${p.tools}</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600/70 dark:text-blue-400/70 block mb-1">Software / Tools</span>
+            <span class="font-semibold text-slate-900 dark:text-white">${p.tools}</span>
           </div>
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1">Deliverables</span>
-            <span class="font-semibold text-neutral-900 dark:text-white">${p.deliverables}</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600/70 dark:text-blue-400/70 block mb-1">Deliverables</span>
+            <span class="font-semibold text-slate-900 dark:text-white">${p.deliverables}</span>
           </div>
         </div>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
           ${p.videoDriveUrl ? `
-            <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+            <a href="${p.videoDriveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-blue-500/25 inline-flex items-center gap-2">
               <span>Tonton Video di Google Drive</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
           ` : p.liveUrl ? `
-            <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+            <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-blue-500/25 inline-flex items-center gap-2">
               <span>Buka WebAR Live Fullscreen</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
           ` : p.driveId ? `
-            <a href="https://drive.google.com/file/d/${p.driveId}/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition shadow-md inline-flex items-center gap-2">
+            <a href="https://drive.google.com/file/d/${p.driveId}/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-blue-500/25 inline-flex items-center gap-2">
               <span>Buka Berkas HD di Google Drive</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
           ` : ''}
 
-          <button onclick="closeProjectDetailModal()" class="px-6 py-3 rounded-full border border-lightBorder dark:border-darkBorder text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 dark:hover:bg-darkCard transition">
+          <button onclick="closeProjectDetailModal()" class="px-6 py-3 rounded-full border border-blue-200 dark:border-slate-800 text-xs font-bold uppercase tracking-wider hover:bg-blue-50 dark:hover:bg-slate-800 transition">
             Tutup Pop-Up
           </button>
         </div>
